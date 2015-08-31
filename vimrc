@@ -164,7 +164,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_min_num_identifier_candidate_chars = 1
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
 let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_show_diagnostics_ui = 0
 let g:EclimCompletionMethod = 'omnifunc'
@@ -174,27 +174,8 @@ nnoremap <leader>df :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>dc :YcmCompleter GoToDeclaration<CR>
 " =============================================
 
-" ============== latex-vim ==============
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor='latex'
-autocmd Filetype tex setlocal nofoldenable
-"To solve the propleme with vim-latexsuite has with ã and â
-imap <buffer> <silent> <M-C> <Plug>Tex_MathCal
-imap <buffer> <silent> <M-B> <Plug>Tex_MathBF
-"imap <buffer> <leader>it <Plug>Tex_InsertItemOnThisLine
-imap <buffer> <silent> <M-A>  <Plug>Tex_InsertItem
-imap <buffer> <silent> <M-E>  <Plug>Tex_InsertItem
-imap <buffer> <silent> <M-e>  <Plug>Tex_InsertItemOnThisLine
-"imap <buffer> <silent> \c <Plug>Traditional
-map <buffer> <silent> é é
-map <buffer> <silent> á á
-map <buffer> <silent> ã ã
-"imap ã <Plug>Tex_MathCal
-"imap é <Plug>
-" =======================================
-
 " ============== latex livepreview ==============
-let g:livepreview_previewer='evince'
+let g:livepreview_previewer='qpdfview'
 " ===============================================
 
 " ============== UltSnips ==============
