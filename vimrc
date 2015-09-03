@@ -31,6 +31,7 @@ Plugin 'airblade/vim-gitgutter'
 "Plugin 'sheerun/vim-polyglot'
 Plugin 'tomasr/molokai'
 Plugin 'vim-scripts/CSApprox'
+Plugin 'vim-latex/vim-latex'
 
 " vim   " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -52,7 +53,7 @@ set laststatus=2
 colorscheme molokai
 
 set nowrap
-set textwidth=130
+set textwidth=110
 set ttimeout
 set ttimeoutlen=0
 set notimeout
@@ -160,6 +161,25 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#syntastic#enabled = 0
 " ======================================
 
+" ============== latex-vim ==============
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='latex'
+autocmd Filetype tex setlocal nofoldenable
+"To solve the propleme with vim-latexsuite has with ã and â
+imap <buffer> <silent> <M-C> <Plug>Tex_MathCal
+imap <buffer> <silent> <M-B> <Plug>Tex_MathBF
+"imap <buffer> <leader>it <Plug>Tex_InsertItemOnThisLine
+imap <buffer> <silent> <M-A>  <Plug>Tex_InsertItem
+imap <buffer> <silent> <M-E>  <Plug>Tex_InsertItem
+imap <buffer> <silent> <M-e>  <Plug>Tex_InsertItemOnThisLine
+"imap <buffer> <silent> \c <Plug>Traditional
+map <buffer> <silent> é é
+map <buffer> <silent> á á
+map <buffer> <silent> ã ã
+"imap ã <Plug>Tex_MathCal
+"imap é <Plug>
+" =======================================
+
 " ==================== YCM ====================
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -175,7 +195,7 @@ nnoremap <leader>dc :YcmCompleter GoToDeclaration<CR>
 " =============================================
 
 " ============== latex livepreview ==============
-let g:livepreview_previewer='qpdfview'
+let g:livepreview_previewer='evince'
 " ===============================================
 
 " ============== UltSnips ==============
