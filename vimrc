@@ -32,6 +32,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tomasr/molokai'
 Plugin 'vim-scripts/CSApprox'
 Plugin 'vim-latex/vim-latex'
+Plugin 'vim-scripts/easy-navigate.vim'
 
 " vim   " All of your Plugins must be added before the following line
 call vundle#end()            " required
