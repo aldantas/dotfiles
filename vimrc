@@ -1,5 +1,4 @@
 set nocompatible
-let mapleader=" "
 filetype off
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -28,11 +27,12 @@ Plugin 'nottwo/avr-vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-scripts/a.vim'
 "Plugin 'sheerun/vim-polyglot'
 Plugin 'tomasr/molokai'
 Plugin 'vim-scripts/CSApprox'
-Plugin 'vim-latex/vim-latex'
 Plugin 'vim-scripts/easy-navigate.vim'
+Plugin 'vim-latex/vim-latex'
 
 " vim   " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -44,6 +44,7 @@ augroup filetypedetect
 au! BufRead,BufNewFile *.m,*.oct set filetype=octave
 augroup END
 
+set autoindent
 set smartindent
 set smarttab
 
@@ -55,13 +56,12 @@ colorscheme molokai
 
 set nowrap
 set textwidth=110
-set ttimeout
-set ttimeoutlen=0
-set notimeout
 set backspace=indent,eol,start
 
 autocmd BufRead,BufNewFile *.c,*.h,*.cpp,*.hpp set ts=8 sw=8 tw=80
-autocmd Filetype python setlocal expandtab ts=8 sw=4 sts=4 cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+autocmd Filetype python setlocal expandtab ts=8 sw=4 sts=4
+autocmd Filetype html setlocal ts=4 sw=4 sts=4
+autocmd Filetype javascript setlocal expandtab ts=2 sw=2 sts=2
 
 set ruler
 set hlsearch
@@ -81,13 +81,14 @@ set runtimepath+=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/aft
 
 set splitbelow
 set splitright
-set clipboard=unnamed
 
 "change current line number color
 hi CursorLineNr ctermfg=193 ctermbg=236 cterm=bold
 
+map <Space> <Leader>
+
 "toggle highlighting on/off, and show current value.
-noremap <leader>h :set hlsearch! hlsearch?<CR>
+noremap <Leader>h :set hlsearch! hlsearch?<CR>
 
 "navigate trhough splits
 nnoremap <C-h> <C-w>h
@@ -101,7 +102,7 @@ set listchars=tab:\|-
 "toggle indentation visualization
 nnoremap <C-I> :set list!<CR>
 
-inoremap <NUL> <C-x><C-o>
+"inoremap <NUL> <C-x><C-o>
 
 " find and replace occurences of word under cursor (normal mode)
 nnoremap <Leader>f :%s/<C-R><C-W>/
@@ -124,8 +125,8 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 
 " create empty line
-nmap <Leader>o o<ESC>k
-nmap <Leader>O O<ESC>j
+nmap <Leader>o o<ESC>
+nmap <Leader>O O<ESC>
 
 " split line (used over space character)
 nmap <Leader>j r<CR>
@@ -200,7 +201,7 @@ let g:livepreview_previewer='evince'
 " ===============================================
 
 " ============== UltSnips ==============
-let g:UltiSnipsExpandTrigger="<silent> <C-o>"
+let g:UltiSnipsExpandTrigger="<C-Space>"
 " ======================================
 
 " ============== Trailing Whitespace ==============
