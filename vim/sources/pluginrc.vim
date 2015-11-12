@@ -29,6 +29,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#syntastic#enabled = 0
 "======================================
+let g:airline_colornum_reversed = 1
 
 "============== latex-vim ==============
 set grepprg=grep\ -nH\ $*

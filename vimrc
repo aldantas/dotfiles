@@ -29,9 +29,11 @@ augroup END
 
 set smarttab "allow shiftwidth configuration
 autocmd BufRead,BufNewFile *.c,*.h,*.cpp,*.hpp set ts=8 sw=8 tw=80
-autocmd Filetype python setlocal expandtab ts=8 sw=4 sts=4
+autocmd Filetype python setlocal expandtab ts=4 sw=4 sts=4
+autocmd Filetype vim  setlocal expandtab ts=4 sw=4 sts=4
 autocmd Filetype html setlocal ts=4 sw=4 sts=4
 autocmd Filetype javascript setlocal expandtab ts=2 sw=2 sts=2
+
 
 set hlsearch
 set ignorecase "ignore case during search
@@ -51,7 +53,7 @@ set directory=~/.vim/swaps
 set undodir=~/.vim/undo
 
 "change current line number color
-hi CursorLineNr ctermfg=193 ctermbg=236 cterm=bold
+" hi CursorLineNr ctermfg=193 ctermbg=236 cterm=bold
 
 map <Space> <Leader>
 
