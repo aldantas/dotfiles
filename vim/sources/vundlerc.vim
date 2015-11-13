@@ -34,6 +34,7 @@ Plugin 'vim-scripts/easy-navigate.vim'
 Plugin 'vim-latex/vim-latex'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'AugustoLD/vim-airline-colornum'
+Plugin 'vim-scripts/undofile_warn.vim'
 " Plugin 'klen/python-mode'
 " vim   " All of your Plugins must be added before the following line
 call vundle#end()            " required
