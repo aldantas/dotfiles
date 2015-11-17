@@ -78,7 +78,7 @@ nnoremap <C-l> <C-w>l
 set listchars=tab:\|-
 "set list lcs=tab:\|\
 "toggle indentation visualization
-nmap <C-i> :set list!<CR>
+nnoremap <Leader>l :set list!<CR>
 
 "use Tab and Shift Tab for indenting
 nnoremap <Tab> >>_
