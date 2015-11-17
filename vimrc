@@ -51,10 +51,19 @@ set splitright
 set directory=~/.vim/swaps
 set undodir=~/.vim/undo
 
+"disable preview window on auto completion
+set completeopt=menuone
+"disable timeout on keys but not on mappings
+set ttimeout
+set notimeout
+set timeoutlen=0
+
 "change current line number color
 " hi CursorLineNr ctermfg=193 ctermbg=236 cterm=bold
 
 map <Space> <Leader>
+
+inoremap <C-c> <Esc>
 
 "toggle highlighting on/off, and show current value.
 noremap <Leader>h :set hlsearch! hlsearch?<CR>
@@ -69,7 +78,14 @@ nnoremap <C-l> <C-w>l
 set listchars=tab:\|-
 "set list lcs=tab:\|\
 "toggle indentation visualization
-nnoremap <C-I> :set list!<CR>
+nmap <C-i> :set list!<CR>
+
+"use Tab and Shift Tab for indenting
+nnoremap <Tab> >>_
+nnoremap <S-Tab> <<_
+inoremap <S-Tab> <C-D>
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
 
 "find and replace occurences of word under cursor (normal mode)
 nnoremap <Leader>f :%s/<C-R><C-W>/

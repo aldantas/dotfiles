@@ -61,6 +61,7 @@ let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_show_diagnostics_ui = 0
+let g:ycm_cache_omnifuc=1
 let g:EclimCompletionMethod = 'omnifunc'
 "nnoremap <leader>y :YcmForceCompileAndDiagnostics<cr>
 nnoremap <leader>gt :YcmCompleter GoTo<CR>
