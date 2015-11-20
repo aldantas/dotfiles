@@ -30,7 +30,7 @@ augroup END
 set smarttab "allow shiftwidth configuration
 autocmd BufRead,BufNewFile *.c,*.h,*.cpp,*.hpp set ts=8 sw=8 tw=80
 autocmd Filetype python,vim setlocal expandtab ts=4 sw=4 sts=4
-autocmd Filetype html setlocal ts=4 sw=4 sts=4
+autocmd Filetype html,java setlocal ts=4 sw=4 sts=4
 autocmd Filetype javascript setlocal expandtab ts=2 sw=2 sts=2
 autocmd Filetype tex setlocal directory=.
 
@@ -88,9 +88,9 @@ vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
 "find and replace occurences of word under cursor (normal mode)
-nnoremap <Leader>f :%s/<C-R><C-W>/
+nnoremap <Leader>f :KeepView %s/<C-R><C-W>/
 "find and replace occurences of selected word (visual mode)
-vmap <Leader>f "sy:%s/<C-R>"/
+vmap <Leader>f "sy:KeepView %s/<C-R>"/
 "add the g flag to search/replace by default
 set gdefault
 

@@ -1,7 +1,8 @@
 "========== Eclim ==========
 nmap <Leader>e :JavaCorrect<CR>
-nmap <Leader>g :JavaGetSet<CR>
+nmap <Leader>gs :JavaGetSet<CR>
 nmap <leader>s :JavaSearchContext<CR>
+nmap <C-O>  :JavaImportOrganize<CR>
 "==========================
 
 "========= NERDTree ==========
