@@ -10,6 +10,7 @@ set smartindent "auto indent after keywords
 set backspace=indent,eol,start
 set encoding=utf-8
 set t_Co=256
+set term=screen-256color
 set ttyfast "send more character to the screen for redrawing
 set showcmd
 set laststatus=2 "show status line
