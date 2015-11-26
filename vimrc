@@ -31,7 +31,7 @@ augroup END
 set smarttab "allow shiftwidth configuration
 autocmd BufRead,BufNewFile *.c,*.h,*.cpp,*.hpp set ts=8 sw=8 tw=80
 autocmd Filetype python,vim setlocal expandtab ts=4 sw=4 sts=4
-autocmd Filetype html,java setlocal ts=4 sw=4 sts=4
+autocmd Filetype html,htmldjango,java,pov setlocal ts=4 sw=4 sts=4
 autocmd Filetype javascript setlocal expandtab ts=2 sw=2 sts=2
 autocmd Filetype tex setlocal directory=.
 
