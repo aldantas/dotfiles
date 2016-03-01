@@ -51,6 +51,7 @@ map <buffer> <silent> é é
 map <buffer> <silent> á á
 map <buffer> <silent> ã ã
 "imap ã <Plug>Tex_MathCal
+let g:Imap_UsePlaceHolders = 0
 "imap é <Plug>
 "=======================================
 
@@ -85,7 +86,7 @@ nmap <leader>b :FixWhitespace<CR>
 "============== Gitgutter ==============
 nmap <leader>gg :GitGutterToggle<CR>
 "=======================================
-"
+
 "============== vim-povray ==============
 let g:image_viewer='ristretto'
 "=======================================

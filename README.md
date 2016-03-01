@@ -1,2 +1,2 @@
 # dotfiles
-Personal dotfiles managed by [rcm](https://github.com/thoughtbot/rcm).
+Personal dotfiles managed with [rcm](https://github.com/thoughtbot/rcm).

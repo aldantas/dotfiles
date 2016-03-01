@@ -28,6 +28,7 @@ flags = [
     '-isystem', '/usr/include/',
     '-isystem', '/usr/include/c++/5.2.0/',
     '-isystem', '/usr/avr/include/',
+    '-I', '~/AVR-Lib/avrutil',
     '-Os',
     '-Wstrict-prototypes'
 ]
