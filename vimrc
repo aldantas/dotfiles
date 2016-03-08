@@ -113,8 +113,8 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 
 "create empty line
-nmap <Leader>o o<ESC>
-nmap <Leader>O O<ESC>
+nmap <Leader>o :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+nmap <Leader>O :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
 
 "remove current char and split line
 nmap <Leader>j r<CR>
