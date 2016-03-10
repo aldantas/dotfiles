@@ -1,0 +1,3 @@
+#HTTP REQUEST
+GET http://localhost:8080/fomento/api/concession
+Content-Type: application/json

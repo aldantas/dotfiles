@@ -119,4 +119,7 @@ nmap <Leader>O :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
 "remove current char and split line
 nmap <Leader>j r<CR>
 
+source ~/.vim/sources/http_request.vim
+nnoremap <Leader>ht :call OpenHTTPRequestFile("~/.vim/sources/http_request_file")<cr>
+
 source ~/.vim/sources/pluginrc.vim
