@@ -101,6 +101,7 @@ nmap <Leader>a ggVG
 
 "save, quit, quit all
 nnoremap <Leader>w :w!<CR>
+nnoremap <Leader>W :w !sudo tee %> /dev/null<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>Q :qa!<CR>
 
