@@ -35,6 +35,7 @@ autocmd Filetype python,vim,xml setlocal expandtab ts=4 sw=4 sts=4
 autocmd Filetype htmldjango,pov setlocal ts=4 sw=4 sts=4
 autocmd Filetype java setlocal expandtab ts=4 sw=4 sts=4
 autocmd Filetype html,javascript setlocal expandtab ts=2 sw=2 sts=2
+autocmd Filetype html,javascript,ruby,eruby setlocal expandtab ts=2 sw=2 sts=2
 autocmd Filetype tex setlocal directory=.
 
 set hlsearch
