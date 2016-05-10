@@ -36,19 +36,19 @@ let g:airline_colornum_reversed = 1
 "==============================================
 
 "==================== YCM ====================
-let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_min_num_identifier_candidate_chars = 0
-let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_enable_diagnostic_signs = 0
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_cache_omnifuc=1
-let g:EclimCompletionMethod = 'omnifunc'
-"nnoremap <leader>y :YcmForceCompileAndDiagnostics<cr>
-nnoremap <leader>gt :YcmCompleter GoTo<CR>
-nnoremap <leader>df :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>dc :YcmCompleter GoToDeclaration<CR>
+"let g:ycm_add_preview_to_completeopt = 0
+"let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_min_num_identifier_candidate_chars = 0
+"let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
+"let g:ycm_confirm_extra_conf = 0
+"let g:ycm_enable_diagnostic_signs = 0
+"let g:ycm_show_diagnostics_ui = 0
+"let g:ycm_cache_omnifuc=1
+"let g:EclimCompletionMethod = 'omnifunc'
+""nnoremap <leader>y :YcmForceCompileAndDiagnostics<cr>
+"nnoremap <leader>gt :YcmCompleter GoTo<CR>
+"nnoremap <leader>df :YcmCompleter GoToDefinition<CR>
+"nnoremap <leader>dc :YcmCompleter GoToDeclaration<CR>
 "=============================================
 
 "============== latex livepreview ==============
@@ -69,4 +69,13 @@ nmap <leader>gg :GitGutterToggle<CR>
 
 "============== vim-povray ==============
 let g:image_viewer='ristretto'
-"=======================================
+"========================================
+
+"=================== Super Tab ===================
+let g:SuperTabDefaultCompletionType = 'context'
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
+"=================================================
+
+"============== HTTPRequest ==============
+let g:http_client_json_ft = 'json'
+"=========================================

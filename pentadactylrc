@@ -12,4 +12,6 @@ imap -builtin <C-c> <C-v><C-c>
 imap -builtin <C-v> <C-v><C-v>
 imap -builtin <C-x> <C-v><C-x>
 
-autocmd LocationChange 'https://docs.google.com/*" :normal! <C-z>
+set hk=qwertpoiuyasdfglkjhzxcvmnb
+
+autocmd LocationChange "https://docs.google.com/*" :normal! <C-z>

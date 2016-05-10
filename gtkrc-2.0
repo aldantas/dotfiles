@@ -1,9 +1,0 @@
-style "xfdesktop-icon-view" {
-	XfdesktopIconView::label-alpha = 0
-
-		fg[NORMAL] = "#ffffff"
-		fg[SELECTED] = "#ffffff"
-		fg[ACTIVE] = "#ffffff"
-}
-
-widget_class "*XfdesktopIconView*" style "xfdesktop-icon-view"

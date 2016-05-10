@@ -3,6 +3,7 @@ set nocompatible
 source ~/.vim/sources/vundlerc.vim
 
 syntax enable
+setlocal omnifunc=syntaxcomplete#Complete
 
 set autoindent "repeat indentation on new line
 set smartindent "auto indent after keywords
@@ -34,8 +35,7 @@ autocmd BufRead,BufNewFile *.c,*.h,*.cpp,*.hpp set ts=8 sw=8 tw=80
 autocmd Filetype python,vim,xml setlocal expandtab ts=4 sw=4 sts=4
 autocmd Filetype htmldjango,pov setlocal ts=4 sw=4 sts=4
 autocmd Filetype java setlocal expandtab ts=4 sw=4 sts=4
-autocmd Filetype html,javascript setlocal expandtab ts=2 sw=2 sts=2
-autocmd Filetype html,javascript,ruby,eruby setlocal expandtab ts=2 sw=2 sts=2
+autocmd Filetype html,javascript,json,ruby,eruby setlocal expandtab ts=2 sw=2 sts=2
 autocmd Filetype tex setlocal directory=.
 
 set hlsearch
@@ -56,7 +56,7 @@ set directory=~/.vim/swaps
 set undodir=~/.vim/undo
 
 "disable preview window on auto completion
-set completeopt=menuone
+set completeopt=menuone,longest
 "disable timeout on keys but not on mappings
 set ttimeout
 set notimeout
@@ -105,6 +105,7 @@ nmap <Leader>a ggVG
 nnoremap <Leader>w :w!<CR>
 nnoremap <Leader>W :w !sudo tee %> /dev/null<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap Q :q!<CR>
 nnoremap <Leader>Q :qa!<CR>
 
 "reedit current file
