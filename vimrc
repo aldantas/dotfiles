@@ -3,7 +3,6 @@ set nocompatible
 source ~/.vim/sources/vundlerc.vim
 
 syntax enable
-setlocal omnifunc=syntaxcomplete#Complete
 
 set autoindent "repeat indentation on new line
 set smartindent "auto indent after keywords
@@ -68,6 +67,9 @@ set timeoutlen=0
 map <Space> <Leader>
 
 inoremap <C-c> <Esc>
+
+inoremap <C-Space> <C-x><C-o>
+imap <buffer> <Nul> <C-Space>
 
 "toggle highlighting on/off, and show current value.
 noremap <Leader>h :set hlsearch! hlsearch?<CR>
