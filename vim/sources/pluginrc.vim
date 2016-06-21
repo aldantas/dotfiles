@@ -80,3 +80,15 @@ let g:SuperTabContextDefaultCompletionType = "<c-n>"
 "============== HTTPRequest ==============
 let g:http_client_json_ft = 'json'
 "=========================================
+
+"========================== Submode ==========================
+call submode#enter_with('move_line', 'n', '', '<Leader>j', ':m .+1<CR>==')
+call submode#enter_with('move_line', 'n', '', '<Leader>k', ':m .-2<CR>==')
+call submode#enter_with('move_line', 'v', '', '<Leader>k', ":m '<-2<CR>gv=gv")
+call submode#enter_with('move_line', 'v', '', '<Leader>j', ":m '>+1<CR>gv=gv")
+call submode#leave_with('move_line', 'nv', '', '<Esc>')
+call submode#map('move_line', 'n', '', 'j', ':m .+1<CR>==')
+call submode#map('move_line', 'n', '', 'k', ':m .-2<CR>==')
+let g:submode_always_show_submode = 1
+let g:submode_keep_leaving_key = 1
+"=============================================================

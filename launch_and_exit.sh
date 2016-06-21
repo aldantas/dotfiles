@@ -1,2 +1,2 @@
 #!/bin/bash
-thunar $1 && exit
+thunar "$1" && exit

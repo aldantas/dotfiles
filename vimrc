@@ -3,6 +3,7 @@ set nocompatible
 source ~/.vim/sources/vundlerc.vim
 
 syntax enable
+"setlocal completefunc=syntaxcomplete#Complete
 
 set autoindent "repeat indentation on new line
 set smartindent "auto indent after keywords
@@ -70,6 +71,7 @@ inoremap <C-c> <Esc>
 
 inoremap <C-Space> <C-x><C-o>
 imap <buffer> <Nul> <C-Space>
+smap <buffer> <Nul> <C-Space>
 
 "toggle highlighting on/off, and show current value.
 noremap <Leader>h :set hlsearch! hlsearch?<CR>
@@ -124,12 +126,20 @@ nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 
+"move lines up and down
+" nnoremap <Leader>k :m .-2<CR>==
+" nnoremap <Leader>j :m .+1<CR>==
+" inoremap <Leader>j <Esc>:m .+1<CR>==gi
+" inoremap <Leader>k <Esc>:m .-2<CR>==gi
+" vnoremap <Leader>j :m '>+1<CR>gv=gv
+" vnoremap <Leader>k :m '<-2<CR>gv=gv
+
 "create empty line
 nmap <Leader>o :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 nmap <Leader>O :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
 
 "remove current char and split line
-nmap <Leader>j r<CR>
+nmap <Leader>J r<CR>
 
 source ~/.vim/sources/http_request.vim
 nnoremap <Leader>ht :call OpenHTTPRequestFile("~/.vim/sources/http_request_file")<cr>
