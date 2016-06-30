@@ -7,12 +7,20 @@ let g:EclimCompletionMethod = 'omnifunc'
 "==========================
 
 "========= NERDTree ==========
-nmap <Leader>n :NERDTreeToggle<CR>
+" nmap <Leader>n :NERDTreeToggle<CR>
 "==============================
 
 "======== DelimitMate =========
 let delimitMate_expand_cr = 1
 "==============================
+
+"========= Ctrl-P ==========
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class
+"===========================
+
 
 "======== Ident Guides ========
 let g:indent_guides_start_level = 2

@@ -5,7 +5,9 @@ call vundle#begin()
 "  " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 "   " Keep Plugin commands between vundle#begin/end.
-Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdtree'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-vinegar'
 Plugin 'Raimondi/delimitMate'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'davidhalter/jedi-vim'
