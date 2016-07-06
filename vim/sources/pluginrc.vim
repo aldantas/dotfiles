@@ -3,15 +3,24 @@ nmap <Leader>e :JavaCorrect<CR>
 nmap <Leader>gs :JavaGetSet<CR>
 nmap <leader>s :JavaSearchContext<CR>
 nmap <C-O>  :JavaImportOrganize<CR>
+let g:EclimCompletionMethod = 'omnifunc'
 "==========================
 
 "========= NERDTree ==========
-nmap <Leader>n :NERDTreeToggle<CR>
+" nmap <Leader>n :NERDTreeToggle<CR>
 "==============================
 
 "======== DelimitMate =========
 let delimitMate_expand_cr = 1
 "==============================
+
+"========= Ctrl-P ==========
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class
+"===========================
+
 
 "======== Ident Guides ========
 let g:indent_guides_start_level = 2
@@ -79,3 +88,15 @@ let g:SuperTabContextDefaultCompletionType = "<c-n>"
 "============== HTTPRequest ==============
 let g:http_client_json_ft = 'json'
 "=========================================
+
+"========================== Submode ==========================
+call submode#enter_with('move_line', 'n', '', '<Leader>j', ':m .+1<CR>==')
+call submode#enter_with('move_line', 'n', '', '<Leader>k', ':m .-2<CR>==')
+call submode#enter_with('move_line', 'v', '', '<Leader>k', ":m '<-2<CR>gv=gv")
+call submode#enter_with('move_line', 'v', '', '<Leader>j', ":m '>+1<CR>gv=gv")
+call submode#leave_with('move_line', 'nv', '', '<Esc>')
+call submode#map('move_line', 'n', '', 'j', ':m .+1<CR>==')
+call submode#map('move_line', 'n', '', 'k', ':m .-2<CR>==')
+let g:submode_always_show_submode = 1
+let g:submode_keep_leaving_key = 1
+"=============================================================
