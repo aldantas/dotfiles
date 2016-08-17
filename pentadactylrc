@@ -15,3 +15,4 @@ imap -builtin <C-x> <C-v><C-x>
 set hk=qwertpoiuyasdfglkjhzxcvmnb
 
 autocmd LocationChange "https://docs.google.com/*" :normal! <C-z>
+autocmd LocationChange "https://www.youtube.com/*" :normal! <C-z>
