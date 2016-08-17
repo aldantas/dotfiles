@@ -143,6 +143,6 @@ nmap <Leader>J r<CR>
 
 source ~/.vim/sources/http_request.vim
 nnoremap <Leader>ht :call OpenHTTPRequestFile("~/.vim/sources/http_request_file")<cr>
-nnoremap <Leader>hs
+nnoremap <Leader>tt 2gg:HTTPClientDoRequest<cr>
 
 source ~/.vim/sources/pluginrc.vim
