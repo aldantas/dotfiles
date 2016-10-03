@@ -23,6 +23,7 @@ set mouse=a
 set background=dark
 set wildmenu
 set ruler "show line and column of cursor
+set lazyredraw
 colorscheme molokai
 
 augroup filetypedetect
