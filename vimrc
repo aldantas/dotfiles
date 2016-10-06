@@ -53,8 +53,19 @@ set runtimepath+=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/aft
 set splitbelow
 set splitright
 
+let directory = expand("~/.vim/swaps")
+if !isdirectory(directory)
+    call mkdir(directory)
+endif
 set directory=~/.vim/swaps
-set undodir=~/.vim/undo
+if has('persistent_undo')
+    let undodir = expand("~/.vim/undos")
+    if !isdirectory(undodir)
+        call mkdir(undodir)
+    endif
+    set undodir=~/.vim/undos
+    set undofile
+endif
 
 "disable preview window on auto completion
 set completeopt=menuone,longest
@@ -63,16 +74,13 @@ set ttimeout
 set notimeout
 set timeoutlen=0
 
-"change current line number color
-" hi CursorLineNr ctermfg=193 ctermbg=236 cterm=bold
-
 map <Space> <Leader>
 
 inoremap <C-c> <Esc>
 
-inoremap <C-Space> <C-x><C-o>
-imap <buffer> <Nul> <C-Space>
-smap <buffer> <Nul> <C-Space>
+" inoremap <C-Space> <C-x><C-o>
+" imap <buffer> <Nul> <C-Space>
+" smap <buffer> <Nul> <C-Space>
 
 "toggle highlighting on/off, and show current value.
 noremap <Leader>h :set hlsearch! hlsearch?<CR>
@@ -82,6 +90,9 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+nnoremap H ^
+nnoremap L g_
 
 "set indentation chars
 set listchars=tab:\|-
@@ -121,21 +132,14 @@ nnoremap <Leader>rt :retab %<CR>
 
 "Copy and Paste to system clipboard
 vmap <Leader>y "+y
+nmap <Leader>yy "+yy
 vmap <Leader>d "+d
 nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 
-"move lines up and down
-" nnoremap <Leader>k :m .-2<CR>==
-" nnoremap <Leader>j :m .+1<CR>==
-" inoremap <Leader>j <Esc>:m .+1<CR>==gi
-" inoremap <Leader>k <Esc>:m .-2<CR>==gi
-" vnoremap <Leader>j :m '>+1<CR>gv=gv
-" vnoremap <Leader>k :m '<-2<CR>gv=gv
-
-"create empty line
+"create empty lines
 nmap <Leader>o :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 nmap <Leader>O :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
 
