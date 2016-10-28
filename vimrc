@@ -76,8 +76,6 @@ set timeoutlen=0
 
 map <Space> <Leader>
 
-inoremap <C-c> <Esc>
-
 " inoremap <C-Space> <C-x><C-o>
 " imap <buffer> <Nul> <C-Space>
 " smap <buffer> <Nul> <C-Space>
