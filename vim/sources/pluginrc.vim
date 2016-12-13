@@ -1,10 +1,20 @@
-"========== Eclim ==========
-nmap <Leader>e :JavaCorrect<CR>
-nmap <Leader>gs :JavaGetSet<CR>
-nmap <leader>s :JavaSearchContext<CR>
-nmap <C-O>  :JavaImportOrganize<CR>
-let g:EclimCompletionMethod = 'omnifunc'
-"==========================
+"========= Ctrl-P ==========
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class
+"===========================
+
+"========= Taglist ==========
+nnoremap <Leader>tl :TlistToggle<CR>
+"============================
+
+"================ A ================
+noremap gaa :A<CR>
+noremap gas :AS<CR>
+noremap gav :AV<CR>
+noremap gat :AT<CR>
+"===================================
 
 "========= NERDTree ==========
 " nmap <Leader>n :NERDTreeToggle<CR>
@@ -14,21 +24,9 @@ let g:EclimCompletionMethod = 'omnifunc'
 let delimitMate_expand_cr = 1
 "==============================
 
-"========= Ctrl-P ==========
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class
-"===========================
-
-
-"======== Ident Guides ========
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_auto_colors = 0
-hi IndentGuidesOdd  ctermbg=7
-hi IndentGuidesEven ctermbg=8
-"==============================
+"============== Trailing Whitespace ==============
+nmap <leader>b :FixWhitespace<CR>
+"=================================================
 
 "============== AirLine ==============
 " set default AirlineTheme
@@ -43,6 +41,27 @@ let g:airline#extensions#tabline#enabled = 1
 "============== AirLine ColorNum ==============
 let g:airline_colornum_reversed = 1
 "==============================================
+
+"============== OmniCpp ==============
+let OmniCpp_NamespaceSearch = 1
+" let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_ShowAccess = 1
+let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+" let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+" let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+" automatically open and close the popup menu / preview window
+" au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+"=====================================
+
+"========== Eclim ==========
+nmap <Leader>e :JavaCorrect<CR>
+nmap <Leader>gs :JavaGetSet<CR>
+nmap <leader>s :JavaSearchContext<CR>
+nmap <C-O>  :JavaImportOrganize<CR>
+let g:EclimCompletionMethod = 'omnifunc'
+"==========================
 
 "==================== YCM ====================
 "let g:ycm_add_preview_to_completeopt = 0
@@ -60,6 +79,14 @@ let g:airline_colornum_reversed = 1
 "nnoremap <leader>dc :YcmCompleter GoToDeclaration<CR>
 "=============================================
 
+"======== Ident Guides ========
+" let g:indent_guides_start_level = 2
+" let g:indent_guides_guide_size = 1
+" let g:indent_guides_auto_colors = 0
+" hi IndentGuidesOdd  ctermbg=7
+" hi IndentGuidesEven ctermbg=8
+"==============================
+
 "============== latex livepreview ==============
 let g:livepreview_previewer='evince'
 "===============================================
@@ -68,13 +95,6 @@ let g:livepreview_previewer='evince'
 let g:UltiSnipsExpandTrigger="<C-o>"
 "======================================
 
-"============== Trailing Whitespace ==============
-nmap <leader>b :FixWhitespace<CR>
-"=================================================
-
-"============== Gitgutter ==============
-nmap <leader>gg :GitGutterToggle<CR>
-"=======================================
 
 "============== vim-povray ==============
 let g:image_viewer='ristretto'
@@ -94,12 +114,12 @@ call submode#enter_with('move_line', 'v', '', '<Leader>j', ":m '>+1<CR>gv=gv")
 call submode#enter_with('move_line', 'v', '', '<Leader>k', ":m '<-2<CR>gv=gv")
 call submode#enter_with('move_line', 'n', '', '<Leader>j', ':m .+1<CR>==')
 call submode#enter_with('move_line', 'n', '', '<Leader>k', ':m .-2<CR>==')
-call submode#leave_with('move_line', 'nv', 'r', '<Esc>')
+call submode#leave_with('move_line', 'n', 'r', 'q')
 call submode#map('move_line', 'n', '', 'j', ':m .+1<CR>==')
 call submode#map('move_line', 'n', '', 'k', ':m .-2<CR>==')
 call submode#map('move_line', 'v', '', 'j', ":m '>+1<CR>gv=gv")
 call submode#map('move_line', 'v', '', 'k', ":m '<-2<CR>gv=gv")
-let g:submode_always_show_submode = 1
+let g:submode_always_show_submode = 2
 let g:submode_keep_leaving_key = 1
 nmap <leader>u :SubmodeUndo<CR>
 nmap <leader><c-r> :SubmodeRedo<CR>

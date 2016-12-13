@@ -3,7 +3,7 @@ set nocompatible
 source ~/.vim/sources/vundlerc.vim
 
 syntax enable
-"setlocal completefunc=syntaxcomplete#Complete
+set omnifunc=syntaxcomplete#Complete
 
 set autoindent "repeat indentation on new line
 set smartindent "auto indent after keywords
@@ -11,7 +11,6 @@ set smartindent "auto indent after keywords
 set backspace=indent,eol,start
 set encoding=utf-8
 set t_Co=256
-" set term=screen-256color
 set ttyfast "send more character to the screen for redrawing
 set showcmd
 set laststatus=2 "show status line
@@ -35,19 +34,20 @@ set smarttab "allow shiftwidth configuration
 autocmd BufRead,BufNewFile *.c,*.h,*.cpp,*.hpp set ts=8 sw=8 tw=80
 autocmd Filetype python,vim,xml,octave,java,text setlocal expandtab ts=4 sw=4 sts=4
 autocmd Filetype htmldjango,pov setlocal ts=4 sw=4 sts=4
-autocmd Filetype html,javascript,json,ruby,eruby setlocal expandtab ts=2 sw=2 sts=2
+autocmd Filetype html,javascript,json,ruby,eruby,arduino setlocal expandtab ts=2 sw=2 sts=2
 autocmd Filetype tex setlocal directory=.
 
 set hlsearch
 set ignorecase "ignore case during search
 set smartcase "consider case if there is upper case letters
 set incsearch "search on typing
+set number
 set relativenumber
 
 "automatically reload vimrc when it's saved
 au BufWritePost .vimrc so ~/.vimrc
 
-set runtimepath+=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
+" set runtimepath+=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
 
 set splitbelow
 set splitright
@@ -68,6 +68,11 @@ endif
 
 "disable preview window on auto completion
 set completeopt=menuone,longest
+set tags+=~/.vim/tags/cpp
+set tags+=~/.vim/tags/avr
+" build tags of your own project with Ctrl-F12
+nmap <F5> :!ctags -R --sort=yes --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
+
 "disable timeout on keys but not on mappings
 set ttimeout
 set notimeout
@@ -93,6 +98,8 @@ nnoremap <C-l> <C-w>l
 nnoremap H ^
 nnoremap L g_
 
+nnoremap <C-n> :set relativenumber!<CR>
+
 "set indentation chars
 set listchars=tab:\|-
 "set list lcs=tab:\|\
@@ -102,10 +109,14 @@ nnoremap <Leader>l :set list!<CR>
 "use Tab and Shift Tab for indenting
 nnoremap <Tab> >>_
 nnoremap <S-Tab> <<_
-inoremap <S-Tab> <C-D>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
+"navigate trhough buffers
+nnoremap gb :bnext<CR>
+nnoremap gB :bprevious<CR>
+
+source ~/.vim/sources/keepview.vim
 "find and replace occurences of word under cursor (normal mode)
 nnoremap <Leader>f :KeepView %s/<C-R><C-W>/
 "find and replace occurences of selected word (visual mode)
@@ -133,6 +144,7 @@ nnoremap <Leader>rt :retab %<CR>
 vmap <Leader>y "+y
 nmap <Leader>yy "+yy
 vmap <Leader>d "+d
+nmap <Leader>dd "+dd
 nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
@@ -149,4 +161,5 @@ source ~/.vim/sources/http_request.vim
 nnoremap <Leader>ht :call OpenHTTPRequestFile("~/.vim/sources/http_request_file")<cr>
 nnoremap <Leader>tt 2gg:HTTPClientDoRequest<cr>
 
+source ~/.vim/sources/netwr_config.vim
 source ~/.vim/sources/pluginrc.vim
