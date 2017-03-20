@@ -23,6 +23,7 @@ set background=dark
 set wildmenu
 set ruler "show line and column of cursor
 set lazyredraw
+set foldlevelstart=99
 colorscheme molokai
 
 augroup filetypedetect
@@ -97,6 +98,7 @@ nnoremap <C-l> <C-w>l
 
 nnoremap H ^
 nnoremap L g_
+nnoremap ç z
 
 " Duplicate a selection
 vmap D y'>p
@@ -137,12 +139,6 @@ nnoremap <Leader>q :q<CR>
 nnoremap Q :q!<CR>
 nnoremap <Leader>Q :qa!<CR>
 
-"reedit current file
-nnoremap <Leader>re :e %<CR>
-
-"retab current file
-nnoremap <Leader>rt :retab %<CR>
-
 "Copy and Paste to system clipboard
 vmap <Leader>y "+y
 nmap <Leader>yy "+yy
@@ -160,9 +156,9 @@ nmap <Leader>O :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
 "remove current char and split line
 nmap <Leader>J r<CR>
 
-source ~/.vim/sources/http_request.vim
-nnoremap <Leader>ht :call OpenHTTPRequestFile("~/.vim/sources/http_request_file")<cr>
-nnoremap <Leader>tt 2gg:HTTPClientDoRequest<cr>
+" source ~/.vim/sources/http_request.vim
+" nnoremap <Leader>ht :call OpenHTTPRequestFile("~/.vim/sources/http_request_file")<cr>
+" nnoremap <Leader>tt 2gg:HTTPClientDoRequest<cr>
 
 source ~/.vim/sources/netwr_config.vim
 source ~/.vim/sources/pluginrc.vim

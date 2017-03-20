@@ -9,7 +9,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-scripts/a.vim'
-Plugin 'vim-scripts/easy-navigate.vim' " Buffer and Tab navigation
+" Plugin 'vim-scripts/easy-navigate.vim' " Buffer and Tab navigation
 " Plugin 'mbbill/undotree'
 " Plugin 'tpope/vim-vinegar'
 " Plugin 'scrooloose/nerdtree'
