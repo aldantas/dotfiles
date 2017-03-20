@@ -3,7 +3,7 @@ set nocompatible
 source ~/.vim/sources/vundlerc.vim
 
 syntax enable
-set omnifunc=syntaxcomplete#Complete
+" set completefunc=syntaxcomplete#Complete
 
 set autoindent "repeat indentation on new line
 set smartindent "auto indent after keywords
@@ -97,6 +97,9 @@ nnoremap <C-l> <C-w>l
 
 nnoremap H ^
 nnoremap L g_
+
+" Duplicate a selection
+vmap D y'>p
 
 nnoremap <C-n> :set relativenumber!<CR>
 

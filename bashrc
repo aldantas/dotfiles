@@ -12,7 +12,7 @@ PS1='[\u@\h \W]\$ '
 # Disable ctrl-S
 stty -ixon
 
-export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.4/site-packages
+export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.6/site-packages
 export PATH="$PATH:/opt/apache-maven-3.3.1/bin"
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
 export TERM='screen-256color'

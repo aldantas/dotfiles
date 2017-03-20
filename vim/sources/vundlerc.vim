@@ -9,10 +9,10 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-scripts/a.vim'
+Plugin 'vim-scripts/easy-navigate.vim' " Buffer and Tab navigation
 " Plugin 'mbbill/undotree'
 " Plugin 'tpope/vim-vinegar'
 " Plugin 'scrooloose/nerdtree'
-" Plugin 'vim-scripts/easy-navigate.vim' " Buffer and Tab navigation
 " ==== Edition Plugins ====
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-commentary'
@@ -32,9 +32,10 @@ Plugin 'tomasr/molokai'
 "==== Autocomplete Plugins ====
 Plugin 'SirVer/ultisnips'
 Plugin 'AugustoLD/vim-snippets'
-Plugin 'ervandew/supertab'
-Plugin 'davidhalter/jedi-vim'
+Plugin 'python-mode/python-mode'
 Plugin 'vim-scripts/OmniCppComplete'
+Plugin 'ervandew/supertab'
+" Plugin 'davidhalter/jedi-vim'
 " Plugin 'ajh17/VimCompletesMe'
 " Plugin 'Valloric/YouCompleteMe'
 " ==== Syntax Plugins ====
