@@ -83,12 +83,13 @@ vnoremap q <C-c>
 
 map <Space> <Leader>
 
-" inoremap <C-Space> <C-x><C-o>
-" imap <buffer> <Nul> <C-Space>
-" smap <buffer> <Nul> <C-Space>
+inoremap <C-Space> <C-x><C-n>
+imap <buffer> <Nul> <C-Space>
 
 "toggle highlighting on/off, and show current value.
 noremap <Leader>h :set hlsearch! hlsearch?<CR>
+
+noremap <Leader>r :!python %<CR>
 
 "navigate through splits
 nnoremap <C-h> <C-w>h
