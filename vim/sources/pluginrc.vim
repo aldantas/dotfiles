@@ -88,7 +88,7 @@ let g:EclimCompletionMethod = 'omnifunc'
 "==============================
 
 "============== latex livepreview ==============
-let g:livepreview_previewer='evince'
+let g:livepreview_previewer='qpdfview'
 "===============================================
 
 "============== UltSnips ==============
@@ -100,10 +100,10 @@ let g:UltiSnipsExpandTrigger="<C-o>"
 let g:image_viewer='ristretto'
 "========================================
 
-"=================== Super Tab ===================
-let g:SuperTabDefaultCompletionType = 'context'
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
-"=================================================
+""=================== Super Tab ===================
+"let g:SuperTabDefaultCompletionType = 'context'
+"let g:SuperTabContextDefaultCompletionType = "<c-n>"
+""=================================================
 
 "============== HTTPRequest ==============
 let g:http_client_json_ft = 'json'
@@ -143,7 +143,7 @@ let g:pymode_lint_cwindow = 0
 let g:pymode_lint_signs = 0
 let g:pymode_rope = 1
 let g:pymode_rope_complete_on_dot = 0
-let g:pymode_rope_completion_bind = '<Tab>'
+let g:pymode_rope_completion_bind = '<C-Space>'
 let g:pymode_rope_show_doc_bind = ''
 let g:pymode_rope_autoimport = 1
 let g:pymode_rope_regenerate_on_write = 0

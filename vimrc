@@ -29,15 +29,35 @@ colorscheme molokai
 augroup filetypedetect
 au! BufRead,BufNewFile *.m,*.oct set filetype=octave
 au! BufRead,BufNewFile *.pl set filetype=prolog
+au! BufRead,BufNewFile *.tex set filetype=tex
 augroup END
 
-set smarttab "allow shiftwidth configuration
-autocmd BufRead,BufNewFile *.c,*.h,*.cpp,*.hpp set ts=8 sw=8 tw=80
-autocmd Filetype python,vim,xml,octave,java,text setlocal expandtab ts=4 sw=4 sts=4
-autocmd Filetype htmldjango,pov setlocal ts=4 sw=4 sts=4
-autocmd Filetype html,javascript,json,ruby,eruby,arduino setlocal expandtab ts=2 sw=2 sts=2
-autocmd Filetype tex setlocal directory=.
+augroup VimCompletesMeTex
+    autocmd!
+    autocmd FileType tex let b:vcm_omni_pattern =
+        \ '\v\\%('
+        \ . '\a*cite\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+        \ . '|\a*ref%(\s*\{[^}]*|range\s*\{[^,}]*%(}\{)?)'
+        \ . '|hyperref\s*\[[^]]*'
+        \ . '|includegraphics\*?%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+        \ . '|%(include%(only)?|input)\s*\{[^}]*'
+        \ . '|\a*(gls|Gls|GLS)(pl)?\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+        \ . '|includepdf%(\s*\[[^]]*\])?\s*\{[^}]*'
+        \ . '|includestandalone%(\s*\[[^]]*\])?\s*\{[^}]*'
+        \ . '|usepackage%(\s*\[[^]]*\])?\s*\{[^}]*'
+        \ . '|documentclass%(\s*\[[^]]*\])?\s*\{[^}]*'
+        \ . ')'
+augroup END
 
+augroup filetypeTab
+    autocmd BufRead,BufNewFile *.c,*.h,*.cpp,*.hpp set ts=8 sw=8 tw=80
+    autocmd Filetype python,vim,xml,octave,java,text,tex setlocal expandtab ts=4 sw=4 sts=4
+    autocmd Filetype htmldjango,pov setlocal ts=4 sw=4 sts=4
+    autocmd Filetype html,javascript,json,ruby,eruby,arduino setlocal expandtab ts=2 sw=2 sts=2
+augroup END
+
+autocmd Filetype tex setlocal directory=.
+set smarttab "allow shiftwidth configuration
 set hlsearch
 set ignorecase "ignore case during search
 set smartcase "consider case if there is upper case letters
@@ -58,6 +78,7 @@ if !isdirectory(directory)
     call mkdir(directory)
 endif
 set directory=~/.vim/swaps
+
 if has('persistent_undo')
     let undodir = expand("~/.vim/undos")
     if !isdirectory(undodir)
@@ -67,12 +88,19 @@ if has('persistent_undo')
     set undofile
 endif
 
+let dictionaries = expand("~/.vim/dictionaries")
+if !isdirectory(dictionaries)
+    call mkdir(dictionaries)
+endif
+au FileType * exec("setlocal dictionary+=".$HOME."/.vim/dictionaries/".expand('<amatch>'))
+set complete+=k
+
 "disable preview window on auto completion
 set completeopt=menuone,longest
-set tags+=~/.vim/tags/cpp
-set tags+=~/.vim/tags/avr
+" set tags+=~/.vim/tags/cpp
+" set tags+=~/.vim/tags/avr
 " build tags of your own project with Ctrl-F12
-nmap <F5> :!ctags -R --sort=yes --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
+" nmap <F5> :!ctags -R --sort=yes --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
 
 "disable timeout on keys but not on mappings
 set ttimeout
@@ -83,8 +111,8 @@ vnoremap q <C-c>
 
 map <Space> <Leader>
 
-inoremap <C-Space> <C-x><C-n>
-imap <buffer> <Nul> <C-Space>
+" inoremap <C-Space> <C-x><C-k>
+" imap <buffer> <Nul> <C-Space>
 
 "toggle highlighting on/off, and show current value.
 noremap <Leader>h :set hlsearch! hlsearch?<CR>
