@@ -30,6 +30,7 @@ augroup filetypedetect
 au! BufRead,BufNewFile *.m,*.oct set filetype=octave
 au! BufRead,BufNewFile *.pl set filetype=prolog
 au! BufRead,BufNewFile *.tex set filetype=tex
+au! BufRead,BufNewFile *.h set filetype=c
 augroup END
 
 augroup VimCompletesMeTex
@@ -49,24 +50,23 @@ augroup VimCompletesMeTex
         \ . ')'
 augroup END
 
+set smarttab "allow shiftwidth configuration
 augroup filetypeTab
-    autocmd BufRead,BufNewFile *.c,*.h,*.cpp,*.hpp set ts=8 sw=8 tw=80
+    autocmd FileType c,cpp set ts=8 sw=8 tw=80
     autocmd Filetype python,vim,xml,octave,java,text,tex setlocal expandtab ts=4 sw=4 sts=4
     autocmd Filetype htmldjango,pov setlocal ts=4 sw=4 sts=4
     autocmd Filetype html,javascript,json,ruby,eruby,arduino setlocal expandtab ts=2 sw=2 sts=2
 augroup END
 
 autocmd Filetype tex setlocal directory=.
-set smarttab "allow shiftwidth configuration
+autocmd Filetype python set textwidth=79
+
 set hlsearch
 set ignorecase "ignore case during search
 set smartcase "consider case if there is upper case letters
 set incsearch "search on typing
 set number
 set relativenumber
-
-"automatically reload vimrc when it's saved
-au BufWritePost .vimrc so ~/.vimrc
 
 " set runtimepath+=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
 

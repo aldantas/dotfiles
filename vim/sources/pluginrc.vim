@@ -16,10 +16,6 @@ noremap gav :AV<CR>
 noremap gat :AT<CR>
 "===================================
 
-"========= NERDTree ==========
-" nmap <Leader>n :NERDTreeToggle<CR>
-"==============================
-
 "======== DelimitMate =========
 let delimitMate_expand_cr = 1
 "==============================
@@ -79,31 +75,13 @@ let g:EclimCompletionMethod = 'omnifunc'
 "nnoremap <leader>dc :YcmCompleter GoToDeclaration<CR>
 "=============================================
 
-"======== Ident Guides ========
-" let g:indent_guides_start_level = 2
-" let g:indent_guides_guide_size = 1
-" let g:indent_guides_auto_colors = 0
-" hi IndentGuidesOdd  ctermbg=7
-" hi IndentGuidesEven ctermbg=8
-"==============================
-
-"============== latex livepreview ==============
-let g:livepreview_previewer='qpdfview'
-"===============================================
-
 "============== UltSnips ==============
 let g:UltiSnipsExpandTrigger="<C-o>"
 "======================================
 
-
 "============== vim-povray ==============
 let g:image_viewer='ristretto'
 "========================================
-
-""=================== Super Tab ===================
-"let g:SuperTabDefaultCompletionType = 'context'
-"let g:SuperTabContextDefaultCompletionType = "<c-n>"
-""=================================================
 
 "============== HTTPRequest ==============
 let g:http_client_json_ft = 'json'
