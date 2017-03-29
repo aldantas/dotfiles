@@ -125,9 +125,9 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-nnoremap H ^
-nnoremap L g_
-nnoremap ç z
+noremap H ^
+noremap L g_
+noremap ç z
 
 " Duplicate a selection
 vmap D y'>p
@@ -154,7 +154,7 @@ source ~/.vim/sources/keepview.vim
 "find and replace occurences of word under cursor (normal mode)
 nnoremap <Leader>f :KeepView %s/<C-R><C-W>/
 "find and replace occurences of selected word (visual mode)
-vmap <Leader>f "sy:KeepView %s/<C-R>"/
+vnoremap <Leader>f "sy:KeepView %s/<C-R>"/
 "add the g flag to search/replace by default
 set gdefault
 
