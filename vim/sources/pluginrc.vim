@@ -103,6 +103,10 @@ nmap <leader>u :SubmodeUndo<CR>
 nmap <leader><c-r> :SubmodeRedo<CR>
 "=============================================================
 
+"========================== Custom Surround ==========================
+au FileType tex call customsurround#map('<Leader>m', '\(', '\)')
+"=====================================================================
+
 "============== python-mode ==============
 let g:pymode_warnings = 0
 let g:pymode_options = 0
