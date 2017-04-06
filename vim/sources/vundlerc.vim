@@ -17,7 +17,7 @@ Plugin 'vim-scripts/a.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-commentary'
 Plugin 'bronson/vim-trailing-whitespace'
-" Plugin 'tpope/vim-surround'
+Plugin 'augustold/vim-custom-surround'
 "==== Interface Plugins ====
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'

@@ -52,14 +52,13 @@ augroup END
 
 set smarttab "allow shiftwidth configuration
 augroup filetypeTab
-    autocmd FileType c,cpp set ts=8 sw=8 tw=80
+    autocmd FileType c,cpp setlocal ts=8 sw=8 tw=80
     autocmd Filetype python,vim,xml,octave,java,text,tex setlocal expandtab ts=4 sw=4 sts=4
+    autocmd Filetype python setlocal tw=79
+    autocmd Filetype tex setlocal tw=80 directory=.
     autocmd Filetype htmldjango,pov setlocal ts=4 sw=4 sts=4
-    autocmd Filetype html,javascript,json,ruby,eruby,arduino setlocal expandtab ts=2 sw=2 sts=2
+    autocmd Filetype html,javascript,json,ruby,eruby,arduino,bib setlocal expandtab ts=2 sw=2 sts=2
 augroup END
-
-autocmd Filetype tex setlocal directory=.
-autocmd Filetype python set textwidth=79
 
 set hlsearch
 set ignorecase "ignore case during search
@@ -67,8 +66,6 @@ set smartcase "consider case if there is upper case letters
 set incsearch "search on typing
 set number
 set relativenumber
-
-" set runtimepath+=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
 
 set splitbelow
 set splitright
@@ -110,9 +107,6 @@ set timeoutlen=0
 vnoremap q <C-c>
 
 map <Space> <Leader>
-
-" inoremap <C-Space> <C-x><C-k>
-" imap <buffer> <Nul> <C-Space>
 
 "toggle highlighting on/off, and show current value.
 noremap <Leader>h :set hlsearch! hlsearch?<CR>
@@ -179,8 +173,8 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 
 "create empty lines
-nmap <Leader>o :<c-u>put =repeat(nr2char(10), v:count1)<cr>
-nmap <Leader>O :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
+nmap <Leader>o :<c-u>put =repeat(nr2char(10), v:count1)<CR>
+nmap <Leader>O :<c-u>put! =repeat(nr2char(10), v:count1)<CR>'[
 
 "remove current char and split line
 nmap <Leader>J r<CR>
