@@ -7,6 +7,7 @@
 
 alias ls='ls --color=auto'
 alias open="exec ~/.launch_and_exit.sh"
+alias vim='vim --servername vim'
 PS1='[\u@\h \W]\$ '
 
 # Disable ctrl-S
