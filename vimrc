@@ -57,7 +57,7 @@ augroup filetypeTab
     autocmd Filetype python setlocal tw=79
     autocmd Filetype tex setlocal tw=80 directory=.
     autocmd Filetype htmldjango,pov setlocal ts=4 sw=4 sts=4
-    autocmd Filetype html,javascript,json,ruby,eruby,arduino,bib setlocal expandtab ts=2 sw=2 sts=2
+    autocmd Filetype html,javascript,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=2 sw=2 sts=2
 augroup END
 
 set hlsearch

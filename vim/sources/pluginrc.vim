@@ -107,6 +107,10 @@ nmap <leader><c-r> :SubmodeRedo<CR>
 au FileType tex call customsurround#map('<Leader>m', '\(', '\)')
 "=====================================================================
 
+"============== vimtex ==============
+let g:vimtex_view_method = 'zathura'
+"====================================
+
 "============== python-mode ==============
 let g:pymode_warnings = 0
 let g:pymode_options = 0
