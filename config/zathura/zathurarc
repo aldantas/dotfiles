@@ -1,5 +1,17 @@
 # copy selection to system clipboard
 set selection-clipboard clipboard
 
+set selection-notification false
+
 # enable incremental search
 set incremental-search true
+
+# open document in fit-width mode by default
+set adjust-open "best-fit"
+
+# one page per row by default
+set pages-per-row 1
+
+set scroll-step 100
+
+set font "inconsolata 15"
