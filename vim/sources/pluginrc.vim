@@ -52,11 +52,11 @@ let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
 "=====================================
 
 "========== Eclim ==========
-nmap <Leader>e :JavaCorrect<CR>
-nmap <Leader>gs :JavaGetSet<CR>
-nmap <leader>s :JavaSearchContext<CR>
-nmap <C-O>  :JavaImportOrganize<CR>
-let g:EclimCompletionMethod = 'omnifunc'
+" nmap <Leader>e :JavaCorrect<CR>
+" nmap <Leader>gs :JavaGetSet<CR>
+" nmap <leader>s :JavaSearchContext<CR>
+" nmap <C-O>  :JavaImportOrganize<CR>
+" let g:EclimCompletionMethod = 'omnifunc'
 "==========================
 
 "==================== YCM ====================
