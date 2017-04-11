@@ -16,10 +16,6 @@ noremap gav :AV<CR>
 noremap gat :AT<CR>
 "===================================
 
-"======== DelimitMate =========
-let delimitMate_expand_cr = 1
-"==============================
-
 "============== Trailing Whitespace ==============
 nmap <leader>b :FixWhitespace<CR>
 "=================================================

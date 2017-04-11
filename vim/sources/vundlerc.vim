@@ -14,7 +14,7 @@ Plugin 'vim-scripts/a.vim'
 " Plugin 'tpope/vim-vinegar'
 " Plugin 'scrooloose/nerdtree'
 " ==== Edition Plugins ====
-Plugin 'Raimondi/delimitMate'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-commentary'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'augustold/vim-custom-surround'
