@@ -27,7 +27,6 @@ set foldlevelstart=99
 colorscheme molokai
 
 augroup filetypedetect
-    au!
     au BufRead,BufNewFile *.m,*.oct set filetype=octave
     au BufRead,BufNewFile *.pl set filetype=prolog
     au BufRead,BufNewFile *.tex set filetype=tex
@@ -36,7 +35,6 @@ augroup END
 
 set smarttab " allow shiftwidth configuration
 augroup filetypeTab
-    au!
     au FileType c,cpp setlocal ts=8 sw=8 tw=80
     au Filetype python,vim,xml,octave,java,text,tex setlocal expandtab ts=4 sw=4 sts=4
     au Filetype python setlocal tw=79
