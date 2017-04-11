@@ -26,12 +26,11 @@ nmap <leader>b :FixWhitespace<CR>
 
 "============== AirLine ==============
 " set default AirlineTheme
-autocmd VimEnter * AirlineTheme wombat
+let g:airline_theme='wombat'
 " enable powerline fonts
 let g:airline_powerline_fonts = 1
 " enable tabline
 let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#syntastic#enabled = 0
 "======================================
 
 "============== AirLine ColorNum ==============
@@ -142,7 +141,7 @@ let g:pymode_python = 'python3'
 let g:pymode_run = 0
 let g:pymode_breakpoint = 0
 let g:pymode_indent = 1
-let g:pymode_folding = 1
+let g:pymode_folding = 0
 let g:pymode_lint = 0
 let g:pymode_lint_on_write = 0
 let g:pymode_lint_message = 0
@@ -152,7 +151,7 @@ let g:pymode_rope = 1
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_completion_bind = '<C-Space>'
 let g:pymode_rope_show_doc_bind = ''
-let g:pymode_rope_autoimport = 1
+let g:pymode_rope_autoimport = 0
 let g:pymode_rope_regenerate_on_write = 0
 let g:pymode_syntax = 1
 let g:pymode_syntax_space_errors = 0
