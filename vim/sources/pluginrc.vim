@@ -75,6 +75,25 @@ let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
 "nnoremap <leader>dc :YcmCompleter GoToDeclaration<CR>
 "=============================================
 
+"==================== VCM ====================
+augroup VimCompletesMeTex
+    autocmd!
+    autocmd FileType tex let b:vcm_omni_pattern =
+        \ '\v\\%('
+        \ . '\a*cite\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+        \ . '|\a*ref%(\s*\{[^}]*|range\s*\{[^,}]*%(}\{)?)'
+        \ . '|hyperref\s*\[[^]]*'
+        \ . '|includegraphics\*?%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+        \ . '|%(include%(only)?|input)\s*\{[^}]*'
+        \ . '|\a*(gls|Gls|GLS)(pl)?\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+        \ . '|includepdf%(\s*\[[^]]*\])?\s*\{[^}]*'
+        \ . '|includestandalone%(\s*\[[^]]*\])?\s*\{[^}]*'
+        \ . '|usepackage%(\s*\[[^]]*\])?\s*\{[^}]*'
+        \ . '|documentclass%(\s*\[[^]]*\])?\s*\{[^}]*'
+        \ . ')'
+augroup END
+"=============================================
+
 "============== UltSnips ==============
 let g:UltiSnipsExpandTrigger="<C-o>"
 "======================================
@@ -105,6 +124,8 @@ nmap <leader><c-r> :SubmodeRedo<CR>
 
 "========================== Custom Surround ==========================
 au FileType tex call customsurround#map('<Leader>m', '\(', '\)')
+vnoremap <Leader>c :SurroundSelection<Space>
+nnoremap <Leader>c :SurroundWord<Space>
 "=====================================================================
 
 "============== vimtex ==============

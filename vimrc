@@ -27,37 +27,22 @@ set foldlevelstart=99
 colorscheme molokai
 
 augroup filetypedetect
-au! BufRead,BufNewFile *.m,*.oct set filetype=octave
-au! BufRead,BufNewFile *.pl set filetype=prolog
-au! BufRead,BufNewFile *.tex set filetype=tex
-au! BufRead,BufNewFile *.h set filetype=c
-augroup END
-
-augroup VimCompletesMeTex
-    autocmd!
-    autocmd FileType tex let b:vcm_omni_pattern =
-        \ '\v\\%('
-        \ . '\a*cite\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-        \ . '|\a*ref%(\s*\{[^}]*|range\s*\{[^,}]*%(}\{)?)'
-        \ . '|hyperref\s*\[[^]]*'
-        \ . '|includegraphics\*?%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-        \ . '|%(include%(only)?|input)\s*\{[^}]*'
-        \ . '|\a*(gls|Gls|GLS)(pl)?\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-        \ . '|includepdf%(\s*\[[^]]*\])?\s*\{[^}]*'
-        \ . '|includestandalone%(\s*\[[^]]*\])?\s*\{[^}]*'
-        \ . '|usepackage%(\s*\[[^]]*\])?\s*\{[^}]*'
-        \ . '|documentclass%(\s*\[[^]]*\])?\s*\{[^}]*'
-        \ . ')'
+    au!
+    au BufRead,BufNewFile *.m,*.oct set filetype=octave
+    au BufRead,BufNewFile *.pl set filetype=prolog
+    au BufRead,BufNewFile *.tex set filetype=tex
+    au BufRead,BufNewFile *.h set filetype=c
 augroup END
 
 set smarttab " allow shiftwidth configuration
 augroup filetypeTab
-    autocmd FileType c,cpp setlocal ts=8 sw=8 tw=80
-    autocmd Filetype python,vim,xml,octave,java,text,tex setlocal expandtab ts=4 sw=4 sts=4
-    autocmd Filetype python setlocal tw=79
-    autocmd Filetype tex setlocal tw=80 directory=.
-    autocmd Filetype htmldjango,pov setlocal ts=4 sw=4 sts=4
-    autocmd Filetype html,javascript,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=2 sw=2 sts=2
+    au!
+    au FileType c,cpp setlocal ts=8 sw=8 tw=80
+    au Filetype python,vim,xml,octave,java,text,tex setlocal expandtab ts=4 sw=4 sts=4
+    au Filetype python setlocal tw=79
+    au Filetype tex setlocal tw=80 directory=.
+    au Filetype htmldjango,pov setlocal ts=4 sw=4 sts=4
+    au Filetype html,javascript,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=2 sw=2 sts=2
 augroup END
 
 set hlsearch
@@ -95,12 +80,11 @@ set complete+=k
 set spellfile=~/.vim/spell/miscwords.add
 set spellcapcheck=""
 au FileType tex setlocal spell spelllang=pt,en
-noremap <Leader>s :setlocal spell! spelllang=pt,en<CR>
+noremap <Leader>ss :setlocal spell! spelllang=pt,en<CR>
 nnoremap <C-Space> a<C-X>s
 nmap <C-@> <C-Space>
-nnoremap <Leader>g zg
-nnoremap gs ]s
-nnoremap gS [s
+nnoremap <Leader>sf z=1<CR><CR>
+nnoremap <Leader>sq :cclose<CR>
 
 " disable preview window on auto completion
 set completeopt=menuone,longest
