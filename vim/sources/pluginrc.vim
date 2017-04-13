@@ -87,6 +87,7 @@ augroup VimCompletesMeTex
         \ . '|documentclass%(\s*\[[^]]*\])?\s*\{[^}]*'
         \ . ')'
 augroup END
+let g:vcm_s_tab_mapping = "\<C-o>a"
 "=============================================
 
 "============== UltSnips ==============
@@ -119,6 +120,8 @@ nmap <leader><c-r> :SubmodeRedo<CR>
 
 "========================== Custom Surround ==========================
 au FileType tex call customsurround#map('<Leader>m', '\(', '\)')
+au FileType tex call customsurround#map('<C-b>', '\textbf{', '}')
+au FileType tex call customsurround#map('<C-i>', '\textit{', '}')
 vnoremap <Leader>c :SurroundSelection<Space>
 nnoremap <Leader>c :SurroundWord<Space>
 "=====================================================================

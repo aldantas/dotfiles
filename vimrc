@@ -103,7 +103,7 @@ map <Space> <Leader>
 " toggle highlighting on/off, and show current value.
 noremap <Leader>h :set hlsearch! hlsearch?<CR>
 
-noremap <Leader>r :!python %<CR>
+au FileType python noremap <Leader>r :!python %<CR>
 
 " navigate through splits
 nnoremap <C-h> <C-w>h
@@ -117,9 +117,6 @@ noremap ç z
 
 " make Enter select completion key instead of creating new line
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" get out of delimiters
-inoremap <C-l> <C-o>A
 
 " duplicate a selection
 vmap D y'>p

@@ -32,7 +32,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'AugustoLD/vim-snippets'
 Plugin 'python-mode/python-mode'
 Plugin 'vim-scripts/OmniCppComplete'
-Plugin 'ajh17/VimCompletesMe'
+Plugin 'augustold/VimCompletesMe'
 " Plugin 'davidhalter/jedi-vim'
 " Plugin 'Valloric/YouCompleteMe'
 " ==== Syntax Plugins ====
