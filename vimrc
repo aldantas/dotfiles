@@ -48,7 +48,9 @@ set ignorecase " ignore case during search
 set smartcase " consider case if there is upper case letters
 set incsearch " search on typing
 set number
-set relativenumber
+set formatoptions+=c  " Automatic wrap comments
+set formatoptions+=j  " Remove comment leader wehn joining lines
+au Filetype tex,text set formatoptions+=a  " Automatic format paragraphs
 
 set splitbelow
 set splitright
@@ -104,6 +106,7 @@ map <Space> <Leader>
 noremap <Leader>h :set hlsearch! hlsearch?<CR>
 
 au FileType python noremap <Leader>r :!python %<CR>
+au FileType python set nosmartindent
 
 " navigate through splits
 nnoremap <C-h> <C-w>h
