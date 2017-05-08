@@ -48,6 +48,7 @@ set ignorecase " ignore case during search
 set smartcase " consider case if there is upper case letters
 set incsearch " search on typing
 set number
+set relativenumber
 set formatoptions+=c  " Automatic wrap comments
 set formatoptions+=j  " Remove comment leader wehn joining lines
 au Filetype tex,text set formatoptions+=a  " Automatic format paragraphs
