@@ -9,7 +9,7 @@ set autoindent " repeat indentation on new line
 set smartindent " auto indent after keywords
 
 set backspace=indent,eol,start
-set encoding=utf-8
+" set encoding=utf-8
 set t_Co=256
 set ttyfast " send more character to the screen for redrawing
 set showcmd
@@ -36,11 +36,11 @@ augroup END
 set smarttab " allow shiftwidth configuration
 augroup filetypeTab
     au FileType c,cpp setlocal ts=8 sw=8 tw=80
-    au Filetype python,vim,xml,octave,java,text,tex setlocal expandtab ts=4 sw=4 sts=4
+    au Filetype python,xml,octave,java,text,tex setlocal expandtab ts=4 sw=4 sts=4
     au Filetype python setlocal tw=79
     au Filetype tex setlocal tw=80 directory=.
     au Filetype htmldjango,pov setlocal ts=4 sw=4 sts=4
-    au Filetype html,javascript,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=2 sw=2 sts=2
+    au Filetype html,javascript,vim,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=2 sw=2 sts=2
 augroup END
 
 set hlsearch
@@ -51,7 +51,6 @@ set number
 set relativenumber
 set formatoptions+=c  " Automatic wrap comments
 set formatoptions+=j  " Remove comment leader wehn joining lines
-au Filetype tex,text set formatoptions+=a  " Automatic format paragraphs
 
 set splitbelow
 set splitright
@@ -86,6 +85,7 @@ nnoremap <C-Space> a<C-X>s
 nmap <C-@> <C-Space>
 nnoremap <Leader>sf z=1<CR><CR>
 nnoremap <Leader>sq :cclose<CR>
+" nnoremap <Leader> :setlocal formatoptions+=a
 
 " disable preview window on auto completion
 set completeopt=menuone,longest
@@ -178,9 +178,9 @@ nmap <Leader>O :<c-u>put! =repeat(nr2char(10), v:count1)<CR>'[
 " remove current char and split line
 nmap <Leader>J r<CR>
 
-" source ~/.vim/sources/http_request.vim
-" nnoremap <Leader>ht :call OpenHTTPRequestFile("~/.vim/sources/http_request_file")<cr>
-" nnoremap <Leader>tt 2gg:HTTPClientDoRequest<cr>
+source ~/.vim/sources/http_request.vim
+nnoremap <Leader>ht :call OpenHTTPRequestFile("~/.vim/sources/http_request_file")<cr>
+nnoremap <Leader>tt 2gg:HTTPClientDoRequest<cr>
 
 source ~/.vim/sources/netwr_config.vim
 source ~/.vim/sources/pluginrc.vim

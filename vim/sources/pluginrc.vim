@@ -16,13 +16,19 @@ noremap gav :AV<CR>
 noremap gat :AT<CR>
 "===================================
 
+"================ AutoPairs ================
+let g:AutoPairsShortcutBackInsert = ''
+let g:AutoPairsShortcutJump = ''
+let g:AutoPairsShortcutFastWap = ''
+"===========================================
+
 "============== Trailing Whitespace ==============
 nmap <leader>b :FixWhitespace<CR>
 "=================================================
 
 "============== AirLine ==============
 " set default AirlineTheme
-let g:airline_theme='wombat'
+let g:airline_theme = 'wombat'
 " enable powerline fonts
 let g:airline_powerline_fonts = 1
 " enable tabline
@@ -91,11 +97,11 @@ let g:vcm_s_tab_mapping = "\<C-o>a"
 "=============================================
 
 "============== UltSnips ==============
-let g:UltiSnipsExpandTrigger="<C-o>"
+let g:UltiSnipsExpandTrigger = "<C-o>"
 "======================================
 
 "============== vim-povray ==============
-let g:image_viewer='ristretto'
+let g:image_viewer = 'ristretto'
 "========================================
 
 "============== HTTPRequest ==============
