@@ -45,6 +45,7 @@ augroup END
 
 set hlsearch
 set ignorecase " ignore case during search
+set infercase
 set smartcase " consider case if there is upper case letters
 set incsearch " search on typing
 set number
@@ -103,11 +104,11 @@ vnoremap q <C-c>
 
 map <Space> <Leader>
 
-" toggle highlighting on/off, and show current value.
-noremap <Leader>h :set hlsearch! hlsearch?<CR>
-
 au FileType python noremap <Leader>r :!python %<CR>
 au FileType python set nosmartindent
+
+" automatically equalize splits when Vim is resized
+autocmd VimResized * wincmd =
 
 " navigate through splits
 nnoremap <C-h> <C-w>h
@@ -121,6 +122,9 @@ noremap ç z
 
 " make Enter select completion key instead of creating new line
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" line completion
+inoremap <C-l> <C-x><C-l>
 
 " duplicate a selection
 vmap D y'>p

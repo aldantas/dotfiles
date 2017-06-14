@@ -126,9 +126,9 @@ nmap <leader><c-r> :SubmodeRedo<CR>
 "=============================================================
 
 "========================== Custom Surround ==========================
-au FileType tex call customsurround#map('<Leader>m', '\(', '\)')
-au FileType tex call customsurround#map('<C-b>', '\textbf{', '}')
-au FileType tex call customsurround#map('<C-i>', '\textit{', '}')
+au FileType tex call customsurround#map('<Leader>tm', '\(', '\)')
+au FileType tex call customsurround#map('<Leader>tb', '\textbf{', '}')
+au FileType tex call customsurround#map('<Leader>ti', '\textit{', '}')
 vnoremap <Leader>c :SurroundSelection<Space>
 nnoremap <Leader>c :SurroundWord<Space>
 "=====================================================================

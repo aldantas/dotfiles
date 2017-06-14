@@ -40,6 +40,7 @@ Plugin 'jvirtanen/vim-octave'
 Plugin 'nottwo/avr-vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'lervag/vimtex'
+Plugin 'romainl/vim-cool'
 " Plugin 'AugustoLD/vim-povray'
 " ==== Utility Plugins ====
 Plugin 'AugustoLD/vim-submode'
