@@ -121,7 +121,7 @@ noremap L g_
 noremap ç z
 
 " make Enter select completion key instead of creating new line
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<C-g>u\<CR>"
 
 " line completion
 inoremap <C-l> <C-x><C-l>
