@@ -137,6 +137,10 @@ nnoremap <Leader>c :SurroundWord<Space>
 let g:vimtex_view_method = 'zathura'
 "====================================
 
+"============== csv.vim ==============
+let g:csv_delim=';'
+"=====================================
+
 "============== python-mode ==============
 let g:pymode_warnings = 0
 let g:pymode_options = 0
