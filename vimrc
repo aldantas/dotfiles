@@ -87,6 +87,7 @@ nmap <C-@> <C-Space>
 nnoremap <Leader>sf z=1<CR><CR>
 nnoremap <Leader>sq :cclose<CR>
 " nnoremap <Leader> :setlocal formatoptions+=a
+" au FileType tex noremap <Leader><Tab> :silent exec "!wmctrl -a main_article.pdf"<CR>:redraw!<CR>
 
 " disable preview window on auto completion
 set completeopt=menuone,longest

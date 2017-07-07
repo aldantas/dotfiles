@@ -134,7 +134,18 @@ nnoremap <Leader>c :SurroundWord<Space>
 "=====================================================================
 
 "============== vimtex ==============
+let g:vimtex_quickfix_mode = 2
+let g:vimtex_quickfix_open_on_warning = 0
 let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_zathura_hook_view = 'MyHook'
+
+function! MyHook() dict
+  if self.xwin_id > 0
+    let l:vim_win_id = system('xdotool getactivewindow')[:-2]
+    silent call system('xdotool windowraise ' . self.xwin_id)
+    silent call system('xdotool windowraise ' . l:vim_win_id)
+  endif
+endfunction
 "====================================
 
 "============== csv.vim ==============
