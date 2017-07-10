@@ -9,8 +9,8 @@ set autoindent " repeat indentation on new line
 set smartindent " auto indent after keywords
 
 set backspace=indent,eol,start
-" set encoding=utf-8
-set t_Co=256
+set encoding=utf-8
+" set t_Co=256
 set ttyfast " send more character to the screen for redrawing
 set showcmd
 set laststatus=2 " show status line
@@ -34,10 +34,12 @@ augroup filetypedetect
 augroup END
 
 set smarttab " allow shiftwidth configuration
-augroup filetypeTab
+augroup filetypeConfig
     au FileType c,cpp setlocal ts=8 sw=8 tw=80
-    au Filetype python,xml,octave,java,text,tex setlocal expandtab ts=4 sw=4 sts=4
-    au Filetype python setlocal tw=79
+    au Filetype python,xml,octave,java,text,tex,r setlocal expandtab ts=4 sw=4 sts=4
+    au Filetype python setlocal tw=79 nosmartindent
+    au FileType python noremap <Leader>r :!python3 %<CR>
+    au FileType r noremap <Leader>r :!Rscript %<CR>
     au Filetype tex setlocal tw=80 directory=.
     au Filetype htmldjango,pov setlocal ts=4 sw=4 sts=4
     au Filetype html,javascript,vim,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=2 sw=2 sts=2
@@ -105,9 +107,6 @@ vnoremap q <C-c>
 
 map <Space> <Leader>
 
-au FileType python noremap <Leader>r :!python %<CR>
-au FileType python set nosmartindent
-
 " automatically equalize splits when Vim is resized
 autocmd VimResized * wincmd =
 
@@ -128,7 +127,7 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<C-g>u\<CR>"
 inoremap <C-l> <C-x><C-l>
 
 " duplicate a selection
-vmap D y'>p
+vmap Y y'>p
 
 nnoremap <C-n> :set relativenumber!<CR>
 

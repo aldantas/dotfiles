@@ -18,8 +18,10 @@ noremap gat :AT<CR>
 
 "================ AutoPairs ================
 let g:AutoPairsShortcutBackInsert = ''
-let g:AutoPairsShortcutJump = ''
-let g:AutoPairsShortcutFastWap = ''
+execute "set <M-n>=\en"
+let g:AutoPairsShortcutJump = '<M-n>'
+execute "set <M-e>=\ep"
+let g:AutoPairsShortcutFastWap = '<M-p>'
 "===========================================
 
 "============== Trailing Whitespace ==============
@@ -114,6 +116,7 @@ call submode#enter_with('move_line', 'v', '', '<Leader>k', ":m '<-2<CR>gv")
 call submode#enter_with('move_line', 'n', '', '<Leader>j', ':m .+1<CR>==')
 call submode#enter_with('move_line', 'n', '', '<Leader>k', ':m .-2<CR>==')
 call submode#map('move_line', 'n', '', 'j', ':m .+1<CR>==')
+call submode#leave_with('move_line', 'n', '', 'q')
 call submode#map('move_line', 'n', '', 'k', ':m .-2<CR>==')
 call submode#map('move_line', 'v', '', 'j', ":m '>+1<CR>gv")
 call submode#map('move_line', 'v', '', 'k', ":m '<-2<CR>gv")
