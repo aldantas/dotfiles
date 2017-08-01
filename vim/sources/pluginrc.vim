@@ -146,6 +146,7 @@ function! MyHook() dict
   if self.xwin_id > 0
     let l:vim_win_id = system('xdotool getactivewindow')[:-2]
     silent call system('xdotool windowraise ' . self.xwin_id)
+    silent call system('xdotool key Escape')
     silent call system('xdotool windowraise ' . l:vim_win_id)
   endif
 endfunction

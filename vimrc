@@ -83,13 +83,13 @@ set complete+=k
 set spellfile=~/.vim/spell/miscwords.add
 set spellcapcheck=""
 au FileType tex setlocal spell spelllang=pt,en
+" au FileType tex setlocal complete+=kspell
 noremap <Leader>ss :setlocal spell! spelllang=pt,en<CR>
 nnoremap <C-Space> a<C-X>s
 nmap <C-@> <C-Space>
 nnoremap <Leader>sf z=1<CR><CR>
 nnoremap <Leader>sq :cclose<CR>
 " nnoremap <Leader> :setlocal formatoptions+=a
-" au FileType tex noremap <Leader><Tab> :silent exec "!wmctrl -a main_article.pdf"<CR>:redraw!<CR>
 
 " disable preview window on auto completion
 set completeopt=menuone,longest
@@ -144,8 +144,8 @@ vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
 " navigate trhough buffers
-nnoremap gb :bnext<CR>
-nnoremap gB :bprevious<CR>
+nnoremap <silent> gb :bnext<CR>
+nnoremap <silent> gB :bprevious<CR>
 
 source ~/.vim/sources/keepview.vim
 " find and replace occurences of word under cursor (normal mode)
