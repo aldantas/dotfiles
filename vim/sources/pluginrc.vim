@@ -20,8 +20,10 @@ noremap gat :AT<CR>
 let g:AutoPairsShortcutBackInsert = ''
 execute "set <M-n>=\en"
 let g:AutoPairsShortcutJump = '<M-n>'
-execute "set <M-e>=\ep"
-let g:AutoPairsShortcutFastWap = '<M-p>'
+execute "set <M-p>=\ep"
+let g:AutoPairsShortcutFastWrap = '<M-p>'
+execute "set <M-t>=\et"
+let g:AutoPairsShortcutToggle = '<M-t>'
 "===========================================
 
 "============== Trailing Whitespace ==============
