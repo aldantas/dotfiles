@@ -8,6 +8,7 @@
 alias ls='ls --color=auto'
 alias open="exec ~/.launch_and_exit.sh"
 alias vim='vim --servername vim'
+alias python='python3'
 PS1='[\u@\h \W]\$ '
 
 # Disable ctrl-S
@@ -20,5 +21,9 @@ export TERM='screen-256color'
 export ECLIPSE_HOME="/usr/share/eclipse"
 export ANDROID_HOME="/opt/android-sdk"
 
-# export NVM_DIR="/home/augusto/.nvm"
+export CAFFE_ROOT="/home/augusto/caffe"
+export LD_LIBRARY_PATH=$CAFFE_ROOT/build/lib/:$LD_LIBRARY_PATH
+export PYTHONPATH=$CAFFE_ROOT/python:$PYTHONPATH
+
+#export NVM_DIR="/home/augusto/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

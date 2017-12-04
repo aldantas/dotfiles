@@ -21,7 +21,7 @@ let g:AutoPairsShortcutBackInsert = ''
 execute "set <M-n>=\en"
 let g:AutoPairsShortcutJump = '<M-n>'
 execute "set <M-e>=\ep"
-let g:AutoPairsShortcutFastWap = '<M-p>'
+let g:AutoPairsShortcutFastWrap = '<M-p>'
 "===========================================
 
 "============== Trailing Whitespace ==============
@@ -153,6 +153,7 @@ endfunction
 
 "============== csv.vim ==============
 let g:csv_delim=';'
+let b:csv_arrange_align='l*'
 "=====================================
 
 "============== python-mode ==============
