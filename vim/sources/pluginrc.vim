@@ -20,8 +20,10 @@ noremap gat :AT<CR>
 let g:AutoPairsShortcutBackInsert = ''
 execute "set <M-n>=\en"
 let g:AutoPairsShortcutJump = '<M-n>'
-execute "set <M-e>=\ep"
+execute "set <M-p>=\ep"
 let g:AutoPairsShortcutFastWrap = '<M-p>'
+execute "set <M-t>=\et"
+let g:AutoPairsShortcutToggle = '<M-t>'
 "===========================================
 
 "============== Trailing Whitespace ==============
@@ -146,6 +148,7 @@ function! MyHook() dict
   if self.xwin_id > 0
     let l:vim_win_id = system('xdotool getactivewindow')[:-2]
     silent call system('xdotool windowraise ' . self.xwin_id)
+    silent call system('xdotool key Escape')
     silent call system('xdotool windowraise ' . l:vim_win_id)
   endif
 endfunction

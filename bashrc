@@ -9,6 +9,8 @@ alias ls='ls --color=auto'
 alias open="exec ~/.launch_and_exit.sh"
 alias vim='vim --servername vim'
 alias python='python3'
+alias mount_pegasus='sshfs pegasus:/media/sharedDisk ~/sharedDisk -ocache=no'
+alias mount_macalan='sshfs aldantas@macalan:/home/ppginf/aldantas ~/ufpr_unix/ -ocache=no'
 PS1='[\u@\h \W]\$ '
 
 # Disable ctrl-S
@@ -26,4 +28,7 @@ export LD_LIBRARY_PATH=$CAFFE_ROOT/build/lib/:$LD_LIBRARY_PATH
 export PYTHONPATH=$CAFFE_ROOT/python:$PYTHONPATH
 
 #export NVM_DIR="/home/augusto/.nvm"
+export HISTCONTROL=ignoredups
+export HISTSIZE=1000000
+# export NVM_DIR="/home/augusto/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
