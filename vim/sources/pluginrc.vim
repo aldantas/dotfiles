@@ -22,8 +22,8 @@ execute "set <M-n>=\en"
 let g:AutoPairsShortcutJump = '<M-n>'
 execute "set <M-p>=\ep"
 let g:AutoPairsShortcutFastWrap = '<M-p>'
-execute "set <M-t>=\et"
-let g:AutoPairsShortcutToggle = '<M-t>'
+execute "set <M-d>=\ed"
+let g:AutoPairsShortcutToggle = '<M-d>'
 "===========================================
 
 "============== Trailing Whitespace ==============
@@ -32,7 +32,7 @@ nmap <leader>b :FixWhitespace<CR>
 
 "============== AirLine ==============
 " set default AirlineTheme
-let g:airline_theme = 'wombat'
+let g:airline_theme = 'moonfly'
 " enable powerline fonts
 let g:airline_powerline_fonts = 1
 " enable tabline

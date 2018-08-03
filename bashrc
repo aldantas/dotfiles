@@ -19,7 +19,7 @@ stty -ixon
 export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.6/site-packages
 export PATH="$PATH:/opt/apache-maven-3.3.1/bin"
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
-export TERM='screen-256color'
+export TERM='xterm-256color'
 export ECLIPSE_HOME="/usr/share/eclipse"
 export ANDROID_HOME="/opt/android-sdk"
 
@@ -32,3 +32,5 @@ export HISTCONTROL=ignoredups
 export HISTSIZE=1000000
 # export NVM_DIR="/home/augusto/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+eval $(thefuck --alias)

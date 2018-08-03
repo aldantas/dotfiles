@@ -19,12 +19,15 @@ set textwidth=110
 set undofile
 set noshowmode
 set mouse=a
-set background=dark
+" set background=dark
 set wildmenu
 set ruler " show line and column of cursor
 set lazyredraw
 set foldlevelstart=99
-colorscheme molokai
+set virtualedit=block
+set clipboard^=unnamed
+set termguicolors
+colorscheme apprentice
 
 augroup filetypedetect
     au BufRead,BufNewFile *.m,*.oct set filetype=octave
@@ -40,7 +43,7 @@ augroup filetypeConfig
     au Filetype python setlocal tw=79 nosmartindent
     au FileType python noremap <buffer> <Leader>r :!python3 %<CR>
     au FileType r noremap <buffer> <Leader>r :!Rscript %<CR>
-    au Filetype tex setlocal tw=80 directory=.
+    au Filetype tex,markdown setlocal tw=80 directory=.
     au Filetype htmldjango,pov setlocal ts=4 sw=4 sts=4
     au Filetype html,javascript,vim,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=2 sw=2 sts=2
 augroup END
@@ -92,7 +95,7 @@ nnoremap <Leader>sq :cclose<CR>
 " nnoremap <Leader> :setlocal formatoptions+=a
 
 " disable preview window on auto completion
-set completeopt=menuone,longest
+set completeopt=menu,longest
 " set tags+=~/.vim/tags/cpp
 " set tags+=~/.vim/tags/avr
 " build tags of your own project with Ctrl-F12
@@ -102,8 +105,6 @@ set completeopt=menuone,longest
 set ttimeout
 set notimeout
 set timeoutlen=0
-
-vnoremap q <C-c>
 
 map <Space> <Leader>
 
@@ -119,6 +120,7 @@ nnoremap <C-l> <C-w>l
 noremap H ^
 noremap L g_
 noremap ç z
+noremap <Leader><Space> V
 
 " make Enter select completion key instead of creating new line
 inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<C-g>u\<CR>"
@@ -182,9 +184,13 @@ nmap <Leader>O :<c-u>put! =repeat(nr2char(10), v:count1)<CR>'[
 " remove current char and split line
 nmap <Leader>J r<CR>
 
-source ~/.vim/sources/http_request.vim
-nnoremap <Leader>ht :call OpenHTTPRequestFile("~/.vim/sources/http_request_file")<cr>
-nnoremap <Leader>tt 2gg:HTTPClientDoRequest<cr>
+" source ~/.vim/sources/http_request.vim
+" nnoremap <Leader>ht :call OpenHTTPRequestFile("~/.vim/sources/http_request_file")<cr>
+" nnoremap <Leader>tt 2gg:HTTPClientDoRequest<cr>
 
 source ~/.vim/sources/netwr_config.vim
 source ~/.vim/sources/pluginrc.vim
+
+" syn match pythonFunction "\zs\(\k\w*\)*\s*\ze("
+" syntax match pythonFunction /\v[[:alpha:]_.]+\ze(\s?\()/
+" hi link pythonFunction Function
