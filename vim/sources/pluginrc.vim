@@ -20,8 +20,10 @@ noremap gat :AT<CR>
 let g:AutoPairsShortcutBackInsert = ''
 execute "set <M-n>=\en"
 let g:AutoPairsShortcutJump = '<M-n>'
-execute "set <M-e>=\ep"
-let g:AutoPairsShortcutFastWap = '<M-p>'
+execute "set <M-p>=\ep"
+let g:AutoPairsShortcutFastWrap = '<M-p>'
+execute "set <M-d>=\ed"
+let g:AutoPairsShortcutToggle = '<M-d>'
 "===========================================
 
 "============== Trailing Whitespace ==============
@@ -30,7 +32,7 @@ nmap <leader>b :FixWhitespace<CR>
 
 "============== AirLine ==============
 " set default AirlineTheme
-let g:airline_theme = 'wombat'
+let g:airline_theme = 'moonfly'
 " enable powerline fonts
 let g:airline_powerline_fonts = 1
 " enable tabline
@@ -154,6 +156,7 @@ endfunction
 
 "============== csv.vim ==============
 let g:csv_delim=';'
+let b:csv_arrange_align='l*'
 "=====================================
 
 "============== python-mode ==============
