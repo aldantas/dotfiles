@@ -41,7 +41,7 @@ augroup filetypeConfig
     au FileType c,cpp setlocal ts=8 sw=8 tw=80
     au Filetype python,xml,octave,java,text,tex,r setlocal expandtab ts=4 sw=4
     au Filetype python setlocal tw=79 nosmartindent
-    au FileType python noremap <buffer> <Leader>r :!python3 %<CR>
+    au FileType python noremap <buffer> <Leader>r :!python3 % 
     au FileType r noremap <buffer> <Leader>r :!Rscript %<CR>
     au Filetype tex,markdown setlocal tw=80 directory=.
     au Filetype htmldjango,pov setlocal ts=4 sw=4
@@ -123,6 +123,8 @@ nnoremap <C-a> <C-i>
 noremap H ^
 noremap L g_
 noremap ç z
+noremap _ t_
+noremap ,w f_l
 noremap <Leader><Space> V
 
 " make Enter select completion key instead of creating new line
@@ -148,20 +150,21 @@ nnoremap <S-Tab> <<_
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
-" navigate trhough buffers
+" navigate through buffers
 nnoremap <silent> gb :bnext<CR>
 nnoremap <silent> gB :bprevious<CR>
 
 source ~/.vim/sources/keepview.vim
 " find and replace occurences of word under cursor (normal mode)
-nnoremap <Leader>f :KeepView %s/<C-R><C-W>/
+nnoremap <Leader>f :KeepView %s/<C-R><C-W>//g<Left><Left>
 " find and replace occurences of selected word (visual mode)
-vnoremap <Leader>f "sy:KeepView %s/<C-R>"/
+vnoremap <Leader>f "sy:KeepView %s/<C-R>"//g<Left><Left>
 " add the g flag to search/replace by default
-set gdefault
+" set gdefault
 
 " select all
 nmap <Leader>a ggVG
+nmap <Leader>A :KeepView normal!ggVGy<CR>
 
 " save, quit, quit all
 nnoremap <Leader>w :w!<CR>
@@ -179,8 +182,8 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 
 " create empty lines
-nmap <Leader>o :<c-u>put =repeat(nr2char(10), v:count1)<CR>
-nmap <Leader>O :<c-u>put! =repeat(nr2char(10), v:count1)<CR>'[
+nmap <Leader>o :<c-u>put =repeat(nr2char(10), v:count1)<CR>'[<Up>
+nmap <Leader>O :<c-u>put! =repeat(nr2char(10), v:count1)<CR><Down>
 
 " remove current char and split line
 nmap <Leader>J r<CR>

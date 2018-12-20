@@ -155,8 +155,8 @@ endfunction
 "====================================
 
 "============== csv.vim ==============
-let g:csv_delim=';'
-let b:csv_arrange_align='l*'
+let g:csv_delim=','
+let b:csv_arrange_align='r*'
 "=====================================
 
 "============== python-mode ==============
