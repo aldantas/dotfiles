@@ -55,6 +55,7 @@ Plugin 'chrisbra/csv.vim'
 " Plugin 'vim-scripts/anwolib'
 " Plugin 'aquach/vim-http-client'
 Plugin 'suan/vim-instant-markdown'
+Plugin 'rhysd/vim-grammarous'
 " Plugin 'vim-scripts/vim-do'
 " vim   " All of your Plugins must be added before the following line
 call vundle#end()            " required

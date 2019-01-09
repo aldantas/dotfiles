@@ -16,7 +16,7 @@ PS1='[\u@\h \W]\$ '
 # Disable ctrl-S
 stty -ixon
 
-export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.6/site-packages
+export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.7/site-packages
 export PATH="$PATH:/opt/apache-maven-3.3.1/bin"
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
 export TERM='xterm-256color'
@@ -33,4 +33,4 @@ export HISTSIZE=1000000
 # export NVM_DIR="/home/augusto/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-eval $(thefuck --alias)
+# eval $(thefuck --alias)
