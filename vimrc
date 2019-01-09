@@ -39,13 +39,13 @@ augroup END
 set smarttab " allow shiftwidth configuration
 augroup filetypeConfig
     au FileType c,cpp setlocal ts=8 sw=8 tw=80
-    au Filetype python,xml,octave,java,text,tex,r setlocal expandtab ts=4 sw=4 sts=4
+    au Filetype python,xml,octave,java,text,tex,r setlocal expandtab ts=4 sw=4
     au Filetype python setlocal tw=79 nosmartindent
-    au FileType python noremap <buffer> <Leader>r :!python3 %<CR>
+    au FileType python noremap <buffer> <Leader>r :!python3 % 
     au FileType r noremap <buffer> <Leader>r :!Rscript %<CR>
     au Filetype tex,markdown setlocal tw=80 directory=.
-    au Filetype htmldjango,pov setlocal ts=4 sw=4 sts=4
-    au Filetype html,javascript,vim,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=2 sw=2 sts=2
+    au Filetype htmldjango,pov setlocal ts=4 sw=4
+    au Filetype html,javascript,vim,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=2 sw=2
 augroup END
 
 set hlsearch
@@ -85,8 +85,8 @@ set complete+=k
 
 set spellfile=~/.vim/spell/miscwords.add
 set spellcapcheck=""
-au FileType tex setlocal spell spelllang=pt,en
-" au FileType tex setlocal complete+=kspell
+au FileType tex,text setlocal spell spelllang=pt,en
+au FileType text setlocal complete+=kspell
 noremap <Leader>ss :setlocal spell! spelllang=pt,en<CR>
 nnoremap <C-Space> a<C-X>s
 nmap <C-@> <C-Space>
@@ -117,9 +117,14 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" navigate through visited locations
+nnoremap <C-a> <C-i>
+
 noremap H ^
 noremap L g_
 noremap ç z
+noremap _ t_
+noremap ,w f_l
 noremap <Leader><Space> V
 
 " make Enter select completion key instead of creating new line
@@ -129,7 +134,7 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<C-g>u\<CR>"
 inoremap <C-l> <C-x><C-l>
 
 " duplicate a selection
-vmap Y y'>p
+vmap <Leader>p y'>p
 
 nnoremap <C-n> :set relativenumber!<CR>
 
@@ -145,27 +150,28 @@ nnoremap <S-Tab> <<_
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
-" navigate trhough buffers
+" navigate through buffers
 nnoremap <silent> gb :bnext<CR>
 nnoremap <silent> gB :bprevious<CR>
 
 source ~/.vim/sources/keepview.vim
 " find and replace occurences of word under cursor (normal mode)
-nnoremap <Leader>f :KeepView %s/<C-R><C-W>/
+nnoremap <Leader>f :KeepView %s/<C-R><C-W>//g<Left><Left>
 " find and replace occurences of selected word (visual mode)
-vnoremap <Leader>f "sy:KeepView %s/<C-R>"/
+vnoremap <Leader>f "sy:KeepView %s/<C-R>"//g<Left><Left>
 " add the g flag to search/replace by default
-set gdefault
+" set gdefault
 
 " select all
 nmap <Leader>a ggVG
+nmap <Leader>A :KeepView normal!ggVGy<CR>
 
 " save, quit, quit all
 nnoremap <Leader>w :w!<CR>
 nnoremap <Leader>W :w !sudo tee %> /dev/null<CR>
 nnoremap <Leader>q :q<CR>
-nnoremap Q :q!<CR>
 nnoremap <Leader>Q :qa!<CR>
+nnoremap <Leader>x :wq<CR>
 
 " Copy and Paste to system clipboard
 vmap <Leader>y "+y
@@ -174,15 +180,37 @@ vmap <Leader>d "+d
 nmap <Leader>dd "+dd
 nmap <Leader>p "+p
 nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
 
 " create empty lines
-nmap <Leader>o :<c-u>put =repeat(nr2char(10), v:count1)<CR>
-nmap <Leader>O :<c-u>put! =repeat(nr2char(10), v:count1)<CR>'[
+nmap <Leader>o :<c-u>put =repeat(nr2char(10), v:count1)<CR>'[<Up>
+nmap <Leader>O :<c-u>put! =repeat(nr2char(10), v:count1)<CR><Down>
 
 " remove current char and split line
 nmap <Leader>J r<CR>
+
+" syn match pythonFunction "\zs\(\k\w*\)*\s*\ze("
+" syntax match pythonFunction /\v[[:alpha:]_.]+\ze(\s?\()/
+" hi link pythonFunction Function
+
+" Use ripgrep if available, fall back to the silver searcher, then fall back to
+" the system grep for grepping
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ -i
+  set grepformat^=%f:%l:%c:%m
+elseif executable('ag')
+  set grepprg=ag\ --vimgrep\ -i
+  set grepformat^=%f:%l:%c:%m
+else
+  set grepprg=grep\ -iR
+endif
+
+" Smarter grep command
+command! -nargs=+ -complete=file_in_path -bar Grep
+      \ silent! grep! <q-args> | redraw!
+
+" Project-wide search
+" 'g' for grep
+nnoremap <Leader>g :Grep<Space>
 
 " source ~/.vim/sources/http_request.vim
 " nnoremap <Leader>ht :call OpenHTTPRequestFile("~/.vim/sources/http_request_file")<cr>
@@ -191,6 +219,3 @@ nmap <Leader>J r<CR>
 source ~/.vim/sources/netwr_config.vim
 source ~/.vim/sources/pluginrc.vim
 
-" syn match pythonFunction "\zs\(\k\w*\)*\s*\ze("
-" syntax match pythonFunction /\v[[:alpha:]_.]+\ze(\s?\()/
-" hi link pythonFunction Function

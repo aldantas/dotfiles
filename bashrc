@@ -23,9 +23,9 @@ export TERM='xterm-256color'
 export ECLIPSE_HOME="/usr/share/eclipse"
 export ANDROID_HOME="/opt/android-sdk"
 
-export CAFFE_ROOT="/home/augusto/caffe"
-export LD_LIBRARY_PATH=$CAFFE_ROOT/build/lib/:$LD_LIBRARY_PATH
-export PYTHONPATH=$CAFFE_ROOT/python:$PYTHONPATH
+# export CAFFE_ROOT="/home/augusto/caffe"
+# export LD_LIBRARY_PATH=$CAFFE_ROOT/build/lib/:$LD_LIBRARY_PATH
+# export PYTHONPATH=$CAFFE_ROOT/python:$PYTHONPATH
 
 #export NVM_DIR="/home/augusto/.nvm"
 export HISTCONTROL=ignoredups
