@@ -27,7 +27,7 @@ set ruler " show line and column of cursor
 set foldlevelstart=99
 set virtualedit=block " allows placing the cursor on empty spaces when block selecting
 set clipboard^=unnamed
-set termguicolors
+" set termguicolors
 colorscheme apprentice
 
 augroup fileTypeDetect
@@ -124,7 +124,7 @@ au FileType tex,text nnoremap <C-Space> a<C-X>s
 " accept first spell suggestion
 nnoremap <Leader>sf z=1<CR><CR>
 
-set completeopt+=menuone,longest,noselect
+set completeopt+=menuone
 " disable preview window on auto completion
 set completeopt-=preview
 
@@ -181,6 +181,12 @@ nnoremap <Tab> >>_
 nnoremap <S-Tab> <<_
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
+
+try
+  exec printf('highlight CursorLineNr cterm=bold gui=bold ctermbg=%s', synIDattr(hlID("LineNr"), "bg"))
+catch
+  exec printf('highlight CursorLineNr cterm=bold gui=bold guibg=%s', synIDattr(hlID("LineNr"), "bg"))
+endtry
 
 " navigate through buffers
 nnoremap <silent> gb :bnext<CR>
@@ -256,13 +262,18 @@ inoremap <M-l> <Esc>lx$pi
 " nnoremap <Leader>ht :call OpenHTTPRequestFile("~/.vim/sources/http_request_file")<cr>
 " nnoremap <Leader>tt 2gg:HTTPClientDoRequest<cr>
 
+" let g:lsp_log_verbose = 1
+" let g:lsp_log_file = expand('~/vim-lsp.log')
+let g:lsp_signs_enabled=0
+let g:lsp_async_completion=1
+
 if executable('pyls')
     " pip install python-language-server
     au User lsp_setup call lsp#register_server({
         \ 'name': 'pyls',
         \ 'cmd': {server_info->['pyls']},
+        \ 'workspace_config': {'pyls': {'plugins': {'jedi_completion': {'include_params': v:false}}}},
         \ 'whitelist': ['python'],
-        \ 'workspace_config': {'pyls': {'plugins': {'jedi_completion': {'include_params': v:false}}}}
         \ })
     autocmd FileType python setlocal omnifunc=lsp#complete
     autocmd FileType python nnoremap K :LspHover<CR>
@@ -280,7 +291,8 @@ if executable('ccls')
     autocmd FileType c,cpp nnoremap K :LspHover<CR>
 endif
 
-" source ~/.vim/sources/netwr_config.vim source ~/.vim/sources/pluginrc.vim
+" source ~/.vim/sources/netwr_config.vim
+source ~/.vim/sources/pluginrc.vim
 
 function! GitBranch()
   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
@@ -293,7 +305,7 @@ endfunction
 
 set statusline=
 set statusline+=%#PmenuSel#
-set statusline+=%{StatuslineGit()}
+" set statusline+=%{StatuslineGit()}
 set statusline+=%#LineNr#
 set statusline+=\ %f
 set statusline+=%m\

@@ -142,7 +142,7 @@ endtry
 
 "============== UltSnips ==============
 try
-  let g:UltiSnipsExpandTrigger = "<C-o>"
+  let g:UltiSnipsExpandTrigger = '<C-o>'
 catch
 endtry
 "======================================

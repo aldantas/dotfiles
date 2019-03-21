@@ -10,10 +10,10 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'bkad/CamelCaseMotion'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'vim-scripts/argtextobj.vim'
+
 " Plugin 'ctrlpvim/ctrlp.vim'
 " Plugin 'vim-scripts/taglist.vim'
 " Plugin 'vim-scripts/a.vim'
-" Plugin 'vim-scripts/easy-navigate.vim' " Buffer and Tab navigation
 " Plugin 'mbbill/undotree'
 " Plugin 'tpope/vim-vinegar'
 
@@ -23,7 +23,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'aldantas/vim-custom-surround'
 
 Plugin 'tommcdo/vim-exchange'
-" Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'bronson/vim-trailing-whitespace'
 
 "==== Interface Plugins ====
 " Plugin 'vim-airline/vim-airline'
@@ -32,7 +32,9 @@ Plugin 'tommcdo/vim-exchange'
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'szw/vim-maximizer'
-Plugin 'bluz71/vim-moonfly-colors'
+Plugin 'ap/vim-buftabline'
+" Plugin 'bluz71/vim-moonfly-colors'
+
 " Plugin 'flazz/vim-colorschemes'
 " Plugin 'tomasr/molokai'
 " Plugin 'godlygeek/csapprox'
@@ -42,8 +44,8 @@ Plugin 'prabirshrestha/vim-lsp'
 Plugin 'prabirshrestha/async.vim'
 Plugin 'ajh17/VimCompletesMe'
 Plugin 'lervag/vimtex'
-" Plugin 'SirVer/ultisnips'
-" Plugin 'aldantas/vim-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'aldantas/vim-snippets'
 
 " ==== Syntax Plugins ====
 Plugin 'romainl/vim-cool'
@@ -55,13 +57,13 @@ Plugin 'romainl/vim-cool'
 " ==== Utility Plugins ====
 Plugin 'aldantas/vim-submode'
 Plugin 'vim-scripts/undofile_warn.vim'
+" Plugin 'rhysd/vim-grammarous'
+
 " Plugin 'godlygeek/tabular'
-" Plugin 'tell-k/vim-autopep8'
 " Plugin 'chrisbra/csv.vim'
 " Plugin 'tpope/vim-fugitive'
 " Plugin 'aquach/vim-http-client'
 " Plugin 'suan/vim-instant-markdown'
-" Plugin 'rhysd/vim-grammarous'
 " Plugin 'vim-scripts/vim-do'
 " vim   " All of your Plugins must be added before the following line
 call vundle#end()            " required
