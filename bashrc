@@ -21,7 +21,8 @@ export PATH="$PATH:/opt/apache-maven-3.3.1/bin"
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
 export TERM='xterm-256color'
 export ECLIPSE_HOME="/usr/share/eclipse"
-export ANDROID_HOME="/opt/android-sdk"
+
+export ANDROID_HOME="/opt/android-sdk"export FZF_DEFAULT_COMMAND='fd --type f'
 
 # export CAFFE_ROOT="/home/augusto/caffe"
 # export LD_LIBRARY_PATH=$CAFFE_ROOT/build/lib/:$LD_LIBRARY_PATH

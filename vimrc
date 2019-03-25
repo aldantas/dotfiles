@@ -12,7 +12,7 @@ set smartindent " auto indent after keywords
 set backspace=indent,eol,start
 set encoding=utf-8
 " set t_Co=256
-set ttyfast " send more character to the screen for redrawing
+" set ttyfast " send more character to the screen for redrawing
 set showcmd
 set laststatus=2 " show status line
 set nowrap
@@ -20,14 +20,15 @@ set textwidth=110
 set undofile
 " set noshowmode
 set mouse=a
-" set background=dark
 set wildmenu
 set ruler " show line and column of cursor
-" set lazyredraw
 set foldlevelstart=99
 set virtualedit=block " allows placing the cursor on empty spaces when block selecting
 set clipboard^=unnamed
+set updatetime=100
+" set lazyredraw
 " set termguicolors
+" set background=dark
 colorscheme apprentice
 
 augroup fileTypeDetect
@@ -48,7 +49,8 @@ augroup fileTypeTabbing
 augroup END
 
 augroup fileTypeRunning
-    au FileType python noremap <buffer> <Leader>r :!python3 % 
+    au FileType python noremap <buffer> <Leader>r :!python3 %<Space>
+    au FileType python noremap <silent> <Leader>R :exec printf('1,%s w !python3', getline(''))<CR>
     au FileType r noremap <buffer> <Leader>r :!Rscript %<CR>
 augroup END
 
@@ -103,7 +105,7 @@ function! SpellLanguageCycle()
   let &spelllang=g:languages[g:spell_language_idx]
   echo &spelllang
 endfunction
-noremap <Leader>ss :call SpellLanguageCycle()<CR>
+noremap <Leader>sl :call SpellLanguageCycle()<CR>
 
 " toggle language spell
 function! ParagraphFormatToggle()
@@ -123,8 +125,10 @@ nmap <C-@> <C-Space>
 au FileType tex,text nnoremap <C-Space> a<C-X>s
 " accept first spell suggestion
 nnoremap <Leader>sf z=1<CR><CR>
+" toggle spell
+nnoremap <Leader>ss :setlocal spell!<CR>
 
-set completeopt+=menuone
+set completeopt+=menuone,longest
 " disable preview window on auto completion
 set completeopt-=preview
 
@@ -157,7 +161,7 @@ noremap L g_
 " close preview and quickfix windows
 noremap <silent> ç :pclose <bar> cclose<CR>
 
-noremap <Leader><Space> V
+" noremap <Leader><Space> V
 
 " make Enter select completion key instead of creating new line
 inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<C-g>u\<CR>"
@@ -169,12 +173,6 @@ inoremap <C-l> <C-x><C-l>
 " vmap <Leader>p y'>p
 
 nnoremap <C-n> :set relativenumber!<CR>
-
-" set indentation chars
-" set listchars=tab:\|-
-" set list lcs=tab:\|\
-" toggle indentation visualization
-" nnoremap <Leader>l :set list!<CR>
 
 " use Tab and Shift Tab for indenting
 nnoremap <Tab> >>_
@@ -194,11 +192,9 @@ nnoremap <silent> gB :bprevious<CR>
 
 source ~/.vim/sources/keepview.vim
 " find and replace occurences of word under cursor (normal mode)
-nnoremap <Leader>f :KeepView %s/<C-R><C-W>//g<Left><Left>
+  nnoremap <Leader>r :KeepView %s/<C-R><C-W>//g<Left><Left>
 " find and replace occurences of selected word (visual mode)
-vnoremap <Leader>f "sy:KeepView %s/<C-R>"//g<Left><Left>
-" add the g flag to search/replace by default
-" set gdefault
+vnoremap <Leader>r "sy:KeepView %s/<C-R>"//g<Left><Left>
 
 " select all
 nmap <Leader>a ggVG

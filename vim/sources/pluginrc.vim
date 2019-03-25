@@ -8,6 +8,31 @@ catch
 endtry
 "===========================
 
+"========= fzf.vim ==========
+try
+  nnoremap <Leader><Space> :Files<CR>
+  nnoremap <Leader>fg :GFiles<CR>
+  nnoremap <Leader>fb :Buffers<CR>
+  nnoremap <Leader>fr :Rg<Space>
+  nnoremap <Leader>fs :Snippets<CR>
+  let g:fzf_colors =
+  \ { 'fg':      ['fg', 'Normal'],
+    \ 'bg':      ['bg', 'Normal'],
+    \ 'hl':      ['fg', 'Comment'],
+    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+    \ 'hl+':     ['fg', 'Statement'],
+    \ 'info':    ['fg', 'PreProc'],
+    \ 'border':  ['fg', 'Ignore'],
+    \ 'prompt':  ['fg', 'Conditional'],
+    \ 'pointer': ['fg', 'Exception'],
+    \ 'marker':  ['fg', 'Keyword'],
+    \ 'spinner': ['fg', 'Label'],
+    \ 'header':  ['fg', 'Comment'] }
+catch
+endtry
+"============================
+
 "========= Taglist ==========
 try
   nnoremap <Leader>tl :TlistToggle<CR>
