@@ -18,7 +18,7 @@ set laststatus=2 " show status line
 set nowrap
 set textwidth=110
 set undofile
-" set noshowmode
+set noshowmode
 set mouse=a
 set wildmenu
 set ruler " show line and column of cursor
@@ -49,9 +49,9 @@ augroup fileTypeTabbing
 augroup END
 
 augroup fileTypeRunning
-    au FileType python noremap <buffer> <Leader>r :!python3 %<Space>
-    au FileType python noremap <silent> <Leader>R :exec printf('1,%s w !python3', getline(''))<CR>
-    au FileType r noremap <buffer> <Leader>r :!Rscript %<CR>
+    au FileType python noremap <buffer> <Leader>e :!python3 %<Space>
+    au FileType python noremap <silent> <Leader>E :exec printf('1,%s w !python3', getline(''))<CR>
+    au FileType r noremap <buffer> <Leader>e :!Rscript %<CR>
 augroup END
 
 set hlsearch
@@ -107,7 +107,6 @@ function! SpellLanguageCycle()
 endfunction
 noremap <Leader>sl :call SpellLanguageCycle()<CR>
 
-" toggle language spell
 function! ParagraphFormatToggle()
   if &formatoptions =~ 'a'
     setlocal formatoptions-=a
@@ -137,7 +136,7 @@ set completeopt-=preview
 " build tags of your own project with Ctrl-F12
 " nmap <F5> :!ctags -R --sort=yes --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
 
-" disable timeout on keys but not on mappings
+" disable timeout on keys but not on mappings??
 set ttimeout
 set notimeout
 set timeoutlen=0
@@ -166,12 +165,6 @@ noremap <silent> ç :pclose <bar> cclose<CR>
 " make Enter select completion key instead of creating new line
 inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<C-g>u\<CR>"
 
-" line completion
-inoremap <C-l> <C-x><C-l>
-
-" duplicate a selection
-" vmap <Leader>p y'>p
-
 nnoremap <C-n> :set relativenumber!<CR>
 
 " use Tab and Shift Tab for indenting
@@ -181,7 +174,7 @@ vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
 try
-  exec printf('highlight CursorLineNr cterm=bold gui=bold ctermbg=%s', synIDattr(hlID("LineNr"), "bg"))
+  exec printf('highlight CursorLineNr cterm=bold gui=bold ctermbg=%s ctermfg=%s', synIDattr(hlID("LineNr"), "bg"), synIDattr(hlID("TabLineSel"), "bg"))
 catch
   exec printf('highlight CursorLineNr cterm=bold gui=bold guibg=%s', synIDattr(hlID("LineNr"), "bg"))
 endtry
@@ -192,7 +185,7 @@ nnoremap <silent> gB :bprevious<CR>
 
 source ~/.vim/sources/keepview.vim
 " find and replace occurences of word under cursor (normal mode)
-  nnoremap <Leader>r :KeepView %s/<C-R><C-W>//g<Left><Left>
+nnoremap <Leader>r :KeepView %s/<C-R><C-W>//g<Left><Left>
 " find and replace occurences of selected word (visual mode)
 vnoremap <Leader>r "sy:KeepView %s/<C-R>"//g<Left><Left>
 
@@ -231,23 +224,22 @@ nnoremap <Leader>J r<CR>
 
 " Use ripgrep if available, fall back to the silver searcher, then fall back to
 " the system grep for grepping
-if executable('rg')
-  set grepprg=rg\ --vimgrep\ -i
-  set grepformat^=%f:%l:%c:%m
-elseif executable('ag')
-  set grepprg=ag\ --vimgrep\ -i
-  set grepformat^=%f:%l:%c:%m
-else
-  set grepprg=grep\ -iR
-endif
+" if executable('rg')
+"   set grepprg=rg\ --vimgrep\ -i
+"   set grepformat^=%f:%l:%c:%m
+" elseif executable('ag')
+"   set grepprg=ag\ --vimgrep\ -i
+"   set grepformat^=%f:%l:%c:%m
+" else
+"   set grepprg=grep\ -iR
+" endif
 
 " Smarter grep command
-command! -nargs=+ -complete=file_in_path -bar Grep
-      \ silent! grep! <q-args> | redraw!
+" command! -nargs=+ -complete=file_in_path -bar Grep
+"       \ silent! grep! <q-args> | redraw!
 
 " Project-wide search
-" 'g' for grep
-nnoremap <Leader>g :Grep<Space>
+" nnoremap <Leader>g :Grep<Space>
 
 execute "set <M-l>=\el"
 " TODO improve this with <C-o>
@@ -258,58 +250,7 @@ inoremap <M-l> <Esc>lx$pi
 " nnoremap <Leader>ht :call OpenHTTPRequestFile("~/.vim/sources/http_request_file")<cr>
 " nnoremap <Leader>tt 2gg:HTTPClientDoRequest<cr>
 
-" let g:lsp_log_verbose = 1
-" let g:lsp_log_file = expand('~/vim-lsp.log')
-let g:lsp_signs_enabled=0
-let g:lsp_async_completion=1
-
-if executable('pyls')
-    " pip install python-language-server
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'workspace_config': {'pyls': {'plugins': {'jedi_completion': {'include_params': v:false}}}},
-        \ 'whitelist': ['python'],
-        \ })
-    autocmd FileType python setlocal omnifunc=lsp#complete
-    autocmd FileType python nnoremap K :LspHover<CR>
-endif
-
-if executable('ccls')
-   au User lsp_setup call lsp#register_server({
-      \ 'name': 'ccls',
-      \ 'cmd': {server_info->['ccls']},
-      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-      \ 'initialization_options': { 'cacheDirectory': '/tmp/ccls',  "completion": {"detailedLabel": v:false}},
-      \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-      \ })
-    autocmd FileType c,cpp setlocal omnifunc=lsp#complete
-    autocmd FileType c,cpp nnoremap K :LspHover<CR>
-endif
-
 " source ~/.vim/sources/netwr_config.vim
 source ~/.vim/sources/pluginrc.vim
-
-function! GitBranch()
-  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-endfunction
-
-function! StatuslineGit()
-  let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-endfunction
-
-set statusline=
-set statusline+=%#PmenuSel#
-" set statusline+=%{StatuslineGit()}
-set statusline+=%#LineNr#
-set statusline+=\ %f
-set statusline+=%m\
-set statusline+=%=
-set statusline+=%#CursorColumn#
-set statusline+=\ %y
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\[%{&fileformat}\]
-set statusline+=\ %p%%
-set statusline+=\ %l:%c
-set statusline+=\ 
+source ~/.vim/sources/lsp_config.vim
+source ~/.vim/sources/statusline.vim

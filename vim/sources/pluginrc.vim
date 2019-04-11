@@ -1,20 +1,22 @@
 "========= Ctrl-P ==========
 try
-  let g:ctrlp_map = '<c-p>'
-  let g:ctrlp_cmd = 'CtrlP'
-  let g:ctrlp_working_path_mode = 'ra'
-  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class
+  " let g:ctrlp_map = '<c-p>'
+  " let g:ctrlp_cmd = 'CtrlP'
+  " let g:ctrlp_working_path_mode = 'ra'
+  " set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class
 catch
 endtry
 "===========================
 
 "========= fzf.vim ==========
+
 try
   nnoremap <Leader><Space> :Files<CR>
   nnoremap <Leader>fg :GFiles<CR>
   nnoremap <Leader>fb :Buffers<CR>
   nnoremap <Leader>fr :Rg<Space>
   nnoremap <Leader>fs :Snippets<CR>
+  inoremap <silent><C-s> <Esc>:Snippets<CR>
   let g:fzf_colors =
   \ { 'fg':      ['fg', 'Normal'],
     \ 'bg':      ['bg', 'Normal'],
@@ -33,12 +35,13 @@ catch
 endtry
 "============================
 
-"========= Taglist ==========
+"========= Python Highlight ==========
 try
-  nnoremap <Leader>tl :TlistToggle<CR>
+  let g:python_highlight_space_errors = 0
+  let g:python_highlight_all = 1
 catch
 endtry
-"============================
+"====================================
 
 "========= CamemCase Motion ==========
 try
@@ -49,10 +52,10 @@ endtry
 
 "================ A ================
 try
-  noremap gaa :A<CR>
-  noremap gas :AS<CR>
-  noremap gav :AV<CR>
-  noremap gat :AT<CR>
+  " noremap gaa :A<CR>
+  " noremap gas :AS<CR>
+  " noremap gav :AV<CR>
+  " noremap gat :AT<CR>
 catch
 endtry
 "===================================
@@ -66,6 +69,7 @@ try
   let g:AutoPairsShortcutFastWrap = '<M-p>'
   execute "set <M-d>=\ed"
   let g:AutoPairsShortcutToggle = '<M-d>'
+  au FileType python let b:AutoPairs = AutoPairsDefine({"f'" : "'", "b'" : "'", "r'" : "'"})
 catch
 endtry
 "===========================================
@@ -78,38 +82,38 @@ endtry
 "=================================================
 
 "============== AirLine ==============
-try
-  " set default AirlineTheme
-  let g:airline_theme = 'moonfly'
-  " enable powerline fonts
-  let g:airline_powerline_fonts = 1
-  " enable tabline
-  let g:airline#extensions#tabline#enabled = 1
-catch
-endtry
+" try
+"   " set default AirlineTheme
+"   let g:airline_theme = 'moonfly'
+"   " enable powerline fonts
+"   let g:airline_powerline_fonts = 1
+"   " enable tabline
+"   let g:airline#extensions#tabline#enabled = 1
+" catch
+" endtry
 "======================================
 
 "============== AirLine ColorNum ==============
-try
-  let g:airline_colornum_reversed = 1
-catch
-endtry
+" try
+"   let g:airline_colornum_reversed = 1
+" catch
+" endtry
 "==============================================
 
 "============== OmniCpp ==============
-try
-  let OmniCpp_NamespaceSearch = 1
-  " let OmniCpp_GlobalScopeSearch = 1
-  let OmniCpp_ShowAccess = 1
-  let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-  let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-  let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-  " let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-  " let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-  " automatically open and close the popup menu / preview window
-  " au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-catch
-endtry
+" try
+"   let OmniCpp_NamespaceSearch = 1
+"   " let OmniCpp_GlobalScopeSearch = 1
+"   let OmniCpp_ShowAccess = 1
+"   let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+"   let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+"   let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+   " let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+   " let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+"   " automatically open and close the popup menu / preview window
+"   " au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+" catch
+" endtry
 "=====================================
 
 "========== Eclim ==========
@@ -160,14 +164,14 @@ try
           \ . '|documentclass%(\s*\[[^]]*\])?\s*\{[^}]*'
           \ . ')'
   augroup END
-  let g:vcm_s_tab_mapping = '\<C-o>a'
+  let g:vcm_s_tab_mapping = '<C-o>a'
 catch
 endtry
 "=============================================
 
 "============== UltSnips ==============
 try
-  let g:UltiSnipsExpandTrigger = '<C-o>'
+  let g:UltiSnipsExpandTrigger = '<C-l>'
 catch
 endtry
 "======================================
@@ -247,29 +251,29 @@ endtry
 
 "============== python-mode ==============
 try
-  let g:pymode_warnings = 0
-  let g:pymode_options = 0
-  let g:pymode_options_colorcolumn = 0
-  let g:pymode_quickfix_minheight = 0
-  let g:pymode_quickfix_maxheight = 0
-  let g:pymode_python = 'python3'
-  let g:pymode_run = 0
-  let g:pymode_breakpoint = 0
-  let g:pymode_indent = 1
-  let g:pymode_folding = 0
-  let g:pymode_lint = 0
-  let g:pymode_lint_on_write = 0
-  let g:pymode_lint_message = 0
-  let g:pymode_lint_cwindow = 0
-  let g:pymode_lint_signs = 0
-  let g:pymode_rope = 1
-  let g:pymode_rope_complete_on_dot = 0
-  let g:pymode_rope_completion_bind = '<C-Space>'
-  let g:pymode_rope_show_doc_bind = ''
-  let g:pymode_rope_autoimport = 0
-  let g:pymode_rope_regenerate_on_write = 0
-  let g:pymode_syntax = 1
-  let g:pymode_syntax_space_errors = 0
+  " let g:pymode_warnings = 0
+  " let g:pymode_options = 0
+  " let g:pymode_options_colorcolumn = 0
+  " let g:pymode_quickfix_minheight = 0
+  " let g:pymode_quickfix_maxheight = 0
+  " let g:pymode_python = 'python3'
+  " let g:pymode_run = 0
+  " let g:pymode_breakpoint = 0
+  " let g:pymode_indent = 1
+  " let g:pymode_folding = 0
+  " let g:pymode_lint = 0
+  " let g:pymode_lint_on_write = 0
+  " let g:pymode_lint_message = 0
+  " let g:pymode_lint_cwindow = 0
+  " let g:pymode_lint_signs = 0
+  " let g:pymode_rope = 1
+  " let g:pymode_rope_complete_on_dot = 0
+  " let g:pymode_rope_completion_bind = '<C-Space>'
+  " let g:pymode_rope_show_doc_bind = ''
+  " let g:pymode_rope_autoimport = 0
+  " let g:pymode_rope_regenerate_on_write = 0
+  " let g:pymode_syntax = 1
+  " let g:pymode_syntax_space_errors = 0
 catch
 endtry
 "=========================================
