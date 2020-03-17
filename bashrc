@@ -9,16 +9,20 @@ alias ls='ls --color=auto'
 alias open="exec ~/.launch_and_exit.sh"
 alias vim='vim --servername vim'
 alias python='python3'
-alias mount_pegasus='sshfs pegasus:/media/sharedDisk ~/sharedDisk -ocache=no'
-alias mount_macalan='sshfs aldantas@macalan:/home/ppginf/aldantas ~/ufpr_unix/ -ocache=no'
+# alias mount_macalan='sshfs aldantas@macalan.c3sl.ufpr.br:/home/ppginf/aldantas ~/ufpr_unix/ -ocache=no'
+alias mount_nas="sshfs aldantas@200.17.212.90:/mnt/NAS /home/augusto/NAS -o ssh_command='ssh -J aldantas@macalan.c3sl.ufpr.br'"
+alias libra='ssh -CY aldantas@200.17.212.90 -J aldantas@macalan.c3sl.ufpr.br'
+alias loki='ssh -CY aldantas@200.17.212.82 -J aldantas@macalan.c3sl.ufpr.br'
+alias hydra='ssh -CY aldantas@200.17.212.91 -J aldantas@macalan.c3sl.ufpr.br'
 PS1='[\u@\h \W]\$ '
 
 # Disable ctrl-S
 stty -ixon
 
-export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.7/site-packages
+# export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.7/site-packages
 # export PYTHONPATH=$PYTHONPATH:/usr/lib/python2.7/site-packages
 export PATH="$PATH:/opt/apache-maven-3.3.1/bin"
+export PATH="$PATH:/var/lib/snapd/snap/bin"
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
 export TERM='xterm-256color'
 export ECLIPSE_HOME="/usr/share/eclipse"

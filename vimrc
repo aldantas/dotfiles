@@ -43,7 +43,7 @@ augroup fileTypeTabbing
     au FileType c,cpp setlocal ts=8 sw=8 tw=80
     au Filetype python,xml,octave,java,text,tex,r setlocal expandtab ts=4 sw=4
     au Filetype python setlocal tw=79 nosmartindent
-    au Filetype tex,markdown setlocal tw=80 directory=.
+    au Filetype tex,markdown setlocal tw=80 directory=. wrap linebreak
     au Filetype htmldjango,pov setlocal ts=4 sw=4
     au Filetype html,javascript,vim,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=2 sw=2
 augroup END
@@ -90,7 +90,7 @@ au FileType * exec("setlocal dictionary+=".$HOME."/.vim/dictionaries/".expand('<
 
 set spellfile=~/.vim/spell/miscwords.add
 set spellcapcheck=""
-au FileType tex,text setlocal complete+=kspell
+au FileType tex,text setlocal complete+=kspell formatoptions-=t
 
 let g:languages = ['pt,en', 'en', 'pt']
 let g:spell_language_idx = 0
@@ -146,6 +146,9 @@ map <Space> <Leader>
 " automatically equalize splits when Vim is resized
 autocmd VimResized * wincmd =
 
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
+
 " navigate through splits
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -155,8 +158,8 @@ nnoremap <C-l> <C-w>l
 " go to next visited position
 nnoremap <C-a> <C-i>
 
-noremap H ^
-noremap L g_
+noremap <expr> H &wrap ? 'g^' : '^'
+noremap <expr> L &wrap ? 'g$' : '$'
 " close preview and quickfix windows
 noremap <silent> ç :pclose <bar> cclose<CR>
 
