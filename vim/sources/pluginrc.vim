@@ -9,7 +9,6 @@ endtry
 "===========================
 
 "========= fzf.vim ==========
-
 try
   nnoremap <Leader><Space> :Files<CR>
   nnoremap <Leader>fg :GFiles<CR>
@@ -67,8 +66,8 @@ try
   let g:AutoPairsShortcutJump = '<M-n>'
   execute "set <M-p>=\ep"
   let g:AutoPairsShortcutFastWrap = '<M-p>'
-  execute "set <M-d>=\ed"
-  let g:AutoPairsShortcutToggle = '<M-d>'
+  execute "set <M-z>=\ed"
+  let g:AutoPairsShortcutToggle = '<M-z>'
   au FileType python let b:AutoPairs = AutoPairsDefine({"f'" : "'", "b'" : "'", "r'" : "'"})
 catch
 endtry
@@ -277,3 +276,11 @@ try
 catch
 endtry
 "=========================================
+
+"========= jedi-vim ==========
+try
+  let g:jedi#popup_on_dot = 0
+  let g:jedi#goto_command = "<C-]>"
+catch
+endtry
+"+============================
