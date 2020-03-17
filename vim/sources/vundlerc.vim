@@ -29,12 +29,13 @@ Plugin 'airblade/vim-gitgutter'
 " Plugin 'bluz71/vim-moonfly-colors'
 
 "==== Autocomplete Plugins ====
-Plugin 'prabirshrestha/vim-lsp'
-Plugin 'prabirshrestha/async.vim'
+" Plugin 'prabirshrestha/vim-lsp'
+" Plugin 'prabirshrestha/async.vim'
 Plugin 'ajh17/VimCompletesMe'
 Plugin 'lervag/vimtex'
 Plugin 'SirVer/ultisnips'
 Plugin 'aldantas/vim-snippets'
+Plugin 'davidhalter/jedi-vim'
 
 " ==== Syntax Plugins ====
 Plugin 'vim-python/python-syntax'
@@ -49,10 +50,10 @@ Plugin 'szw/vim-maximizer'
 Plugin 'aldantas/vim-submode'
 Plugin 'vim-scripts/undofile_warn.vim'
 Plugin 'romainl/vim-cool'
+" Plugin 'suan/vim-instant-markdown'
 " Plugin 'rhysd/vim-grammarous'
 " Plugin 'godlygeek/tabular'
 " Plugin 'chrisbra/csv.vim'
-" Plugin 'suan/vim-instant-markdown'
 " Plugin 'aquach/vim-http-client'
 
 " vim   " All of your Plugins must be added before the following line

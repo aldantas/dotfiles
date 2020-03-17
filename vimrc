@@ -90,11 +90,10 @@ au FileType * exec("setlocal dictionary+=".$HOME."/.vim/dictionaries/".expand('<
 
 set spellfile=~/.vim/spell/miscwords.add
 set spellcapcheck=""
-au FileType tex,text setlocal complete+=kspell
+au FileType tex,text setlocal spell complete+=kspell wrap lbr formatoptions-=t
 
 let g:languages = ['pt,en', 'en', 'pt']
 let g:spell_language_idx = 0
-au FileType tex,text setlocal spell
 let &spelllang=g:languages[g:spell_language_idx]
 
 function! SpellLanguageCycle()
@@ -110,10 +109,10 @@ noremap <Leader>sl :call SpellLanguageCycle()<CR>
 function! ParagraphFormatToggle()
   if &formatoptions =~ 'a'
     setlocal formatoptions-=a
-    echo 'Paragraph Format ON'
+    echo 'Paragraph Format OFF'
   else
     setlocal formatoptions+=a
-    echo 'Paragraph Format OFF'
+    echo 'Paragraph Format ON'
   endif
 endfunction
 nnoremap <Leader>sp :call ParagraphFormatToggle()<CR>
@@ -127,7 +126,7 @@ nnoremap <Leader>sf z=1<CR><CR>
 " toggle spell
 nnoremap <Leader>ss :setlocal spell!<CR>
 
-set completeopt+=menuone,longest
+" set completeopt+=menuone
 " disable preview window on auto completion
 set completeopt-=preview
 
@@ -146,6 +145,12 @@ map <Space> <Leader>
 " automatically equalize splits when Vim is resized
 autocmd VimResized * wincmd =
 
+nnoremap j gj
+nnoremap k gk
+
+vnoremap j gj
+vnoremap k gk
+
 " navigate through splits
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -155,8 +160,8 @@ nnoremap <C-l> <C-w>l
 " go to next visited position
 nnoremap <C-a> <C-i>
 
-noremap H ^
-noremap L g_
+noremap H g^
+noremap L g$
 " close preview and quickfix windows
 noremap <silent> ç :pclose <bar> cclose<CR>
 
@@ -174,9 +179,9 @@ vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
 try
-  exec printf('highlight CursorLineNr cterm=bold gui=bold ctermbg=%s ctermfg=%s', synIDattr(hlID("LineNr"), "bg"), synIDattr(hlID("TabLineSel"), "bg"))
+  exec printf('highlight CursorLineNr cterm=bold ctermbg=%s ctermfg=%s', synIDattr(hlID("LineNr"), "bg"), synIDattr(hlID("TabLineSel"), "bg"))
 catch
-  exec printf('highlight CursorLineNr cterm=bold gui=bold guibg=%s', synIDattr(hlID("LineNr"), "bg"))
+  " exec printf('highlight CursorLineNr gui=bold guibg=%s guifg=%s', synIDattr(hlID("LineNr"), "bg"), synIDattr(hlID("TabLineSel"), "bg"))
 endtry
 
 " navigate through buffers
@@ -188,6 +193,9 @@ source ~/.vim/sources/keepview.vim
 nnoremap <Leader>r :KeepView %s/<C-R><C-W>//g<Left><Left>
 " find and replace occurences of selected word (visual mode)
 vnoremap <Leader>r "sy:KeepView %s/<C-R>"//g<Left><Left>
+
+nnoremap <Leader>R :bufdo %s/<C-R><C-W>//g \| update<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+vnoremap <Leader>R "sy:bufdo %s/<C-R>"//g \| update<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 
 " select all
 nmap <Leader>a ggVG
@@ -252,5 +260,5 @@ inoremap <M-l> <Esc>lx$pi
 
 " source ~/.vim/sources/netwr_config.vim
 source ~/.vim/sources/pluginrc.vim
-source ~/.vim/sources/lsp_config.vim
+" source ~/.vim/sources/lsp_config.vim
 source ~/.vim/sources/statusline.vim
