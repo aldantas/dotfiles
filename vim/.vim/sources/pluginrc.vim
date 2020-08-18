@@ -62,12 +62,11 @@ endtry
 "================ AutoPairs ================
 try
   let g:AutoPairsShortcutBackInsert = ''
+  let g:AutoPairsShortcutToggle = ''
   execute "set <M-n>=\en"
   let g:AutoPairsShortcutJump = '<M-n>'
   execute "set <M-p>=\ep"
   let g:AutoPairsShortcutFastWrap = '<M-p>'
-  execute "set <M-z>=\ed"
-  let g:AutoPairsShortcutToggle = '<M-z>'
   au FileType python let b:AutoPairs = AutoPairsDefine({"f'" : "'", "b'" : "'", "r'" : "'"})
 catch
 endtry
@@ -163,7 +162,7 @@ try
           \ . '|documentclass%(\s*\[[^]]*\])?\s*\{[^}]*'
           \ . ')'
   augroup END
-  let g:vcm_s_tab_mapping = '<C-o>a'
+  let g:vcm_s_tab_mapping = '\<C-O>a'
 catch
 endtry
 "=============================================

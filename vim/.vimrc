@@ -42,7 +42,7 @@ set smarttab " allow shiftwidth configuration
 augroup fileTypeTabbing
     au FileType c,cpp setlocal ts=8 sw=8 tw=80
     au Filetype python,xml,octave,java,text,tex,r setlocal expandtab ts=4 sw=4
-    au Filetype python setlocal tw=79 nosmartindent
+    au Filetype python setlocal nosmartindent
     au Filetype tex,markdown setlocal tw=80 directory=. wrap linebreak
     au Filetype htmldjango,pov setlocal ts=4 sw=4
     au Filetype html,javascript,vim,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=2 sw=2
@@ -136,6 +136,8 @@ set completeopt-=preview
 " nmap <F5> :!ctags -R --sort=yes --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
 
 " disable timeout on keys but not on mappings??
+" Don't remeber why exaclty, but it has something to do with using space as leader key
+" while not adding a delay when you press space in insert mode
 set ttimeout
 set notimeout
 set timeoutlen=0
