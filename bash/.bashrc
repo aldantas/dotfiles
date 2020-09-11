@@ -7,13 +7,15 @@ alias open="exec ~/.launch_and_exit.sh"
 alias vim='vim --servername vim'
 alias vi='vim --servername vim'
 alias python='python3'
+eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
-alias mount_nas="sshfs aldantas@200.17.212.90:/mnt/NAS /home/augusto/nas/ -o ssh_command='ssh -J aldantas@macalan.c3sl.ufpr.br'"
-alias mount_macalan="sshfs aldantas@macalan.c3sl.ufpr.br:/home/ppginf/aldantas /home/augusto/macalan/"
-alias libra='ssh -CY aldantas@libra.inf.ufpr.br -J aldantas@macalan.c3sl.ufpr.br'
-alias loki='ssh -CY aldantas@loki.inf.ufpr.br -J aldantas@macalan.c3sl.ufpr.br'
-alias gemini='ssh -CY gemini@gemini.inf.ufpr.br -J aldantas@macalan.c3sl.ufpr.br'
-alias hydra='ssh -CY aldantas@hydra.inf.ufpr.br -J aldantas@macalan.c3sl.ufpr.br'
+alias mount_nas="sshfs loki:/mnt/NAS /home/augusto/nas/ -o ssh_command='ssh -4'"
+alias mount_macalan="sshfs macalan:/home/ppginf/aldantas /home/augusto/macalan/ -o ssh_command='ssh -4'"
+alias libra='ssh -CY libra'
+alias loki='ssh -CY loki'
+alias gemini='ssh -CY gemini'
+alias hydra='ssh -CY hydra'
 
 export PATH="$PATH:/var/lib/snapd/snap/bin"
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
