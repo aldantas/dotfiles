@@ -7,7 +7,10 @@ set selection-notification false
 set incremental-search true
 
 # open document in fit-width mode by default
-set adjust-open "width"
+set adjust-open "best-fit"
+
+set window-height 3000
+set window-width 3000
 
 # one page per row by default
 set pages-per-row 1

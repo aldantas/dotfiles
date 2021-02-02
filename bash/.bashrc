@@ -10,7 +10,7 @@ alias python='python3'
 eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
 
-alias mount_nas="sshfs loki:/mnt/NAS /home/augusto/nas/ -o ssh_command='ssh -4'"
+alias mount_nas="sshfs loki:/mnt/NAS /home/augusto/nas/ -o ssh_command='ssh -4',reconnect,ServerAliveInterval=15,ServerAliveCountMax=3"
 alias mount_macalan="sshfs macalan:/home/ppginf/aldantas /home/augusto/macalan/ -o ssh_command='ssh -4'"
 alias libra='ssh -CY libra'
 alias loki='ssh -CY loki'

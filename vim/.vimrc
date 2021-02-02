@@ -50,6 +50,7 @@ augroup END
 
 augroup fileTypeRunning
     au FileType python noremap <buffer> <Leader>e :!python3 %<Space>
+    au FileType sh noremap <buffer> <Leader>e :!sh %<Space>
     au FileType python noremap <silent> <Leader>E :exec printf('1,%s w !python3', getline(''))<CR>
     au FileType r noremap <buffer> <Leader>e :!Rscript %<CR>
 augroup END
