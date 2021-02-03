@@ -1,10 +1,3 @@
-clear Lock
-
-keycode 0x42 = Escape
-keycode 43 = h H h H Left Hstroke hstroke Hstroke h H hstroke Hstroke h H hstroke Hstroke
-keycode 44 = j J j J Down dead_horn dead_hook
-keycode 45 = k K k K Up ampersand kra ampersand k K kra ampersand
-keycode 46 = l L l L Right Lstroke lstroke Lstroke l L lstroke Lstroke l L lstroke Lstroke
 keycode 47 = semicolon colon
 keycode 61 = slash question NoSymbol NoSymbol degree
 keycode 97 = ccedilla
