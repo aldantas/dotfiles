@@ -1,0 +1,75 @@
+#!/bin/bash
+
+: ${ORG_EMACS_EL:='~/.emacs'}
+
+# Reflow all paragraphs:
+#   (fill-region (point-min) (point-max))
+#
+# The "fill-region" functions does not have an implementation specific for org,
+# so it gives sub-optimal results. On the other hand, "fill-paragraph" has, but
+# it does not work directly on regions. So we apply it on every line.  It
+# already adjusts the tables.
+#
+# The following is an alternative, but messes up code in src blocks.
+#
+# Autoformat paragraphs and tables
+#(let ((end (point-max)) (start (point-min)))
+#     (goto-char end)
+#     (while (> (point) start)
+#            (when (not (org-in-src-block-p))
+#                  (ignore-errors (org-fill-paragraph)))
+#            (forward-line -1)))
+
+die() {
+    >&2 echo "$@"
+    exit 1
+}
+
+orgformat() {
+    2>&1 emacs --batch --load $ORG_EMACS_EL --file "$1" --eval \
+        "(progn
+          ;; force empty line before headings
+          (replace-regexp \"\n\\\\*\" \"\n\n*\")
+          (goto-char (point-min))
+          ;; clean whitespace
+          (delete-trailing-whitespace)
+          (replace-regexp \"\n\\\\{3,\\\\}\" \"\n\n\")
+          ;; update dynamic blocks (columnview)
+          (org-update-all-dblocks)
+          ;; align all tables
+          (org-table-map-tables 'org-table-align)
+          ;; save
+          (save-buffer))"
+}
+
+[ "$#" -lt 1 ] && >&2 echo 'orgformat [-i] <files>' && exit
+
+in_place=0
+if [ "$1" == "-i" ]; then
+    in_place=1
+    shift
+fi
+
+for i in $@; do
+    file="$i"
+
+    if [ "$file" != "-" ] && [ ! -f "$file" ]; then
+        die "File does not exist: $file"
+    fi
+
+    if [ $in_place -eq 0 ] || [ "$file" == "-" ]; then
+        tmp=$(mktemp).org
+        cat "$file" > $tmp
+        file=$tmp
+    fi
+
+    err=$(orgformat "$file")
+    if [ $? -ne 0 ]; then
+        die "$err"
+    fi
+
+    if [ $in_place -eq 0 ] || [ "$file" == "-" ]; then
+        cat "$file"
+        rm "$file"
+    fi
+done

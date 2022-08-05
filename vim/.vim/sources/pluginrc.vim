@@ -15,7 +15,9 @@ try
   nnoremap <Leader>fb :Buffers<CR>
   nnoremap <Leader>fr :Rg<Space>
   nnoremap <Leader>fs :Snippets<CR>
-  inoremap <silent><C-s> <Esc>:Snippets<CR>
+  " inoremap <silent><C-s> <C-\><C-O>:Snippets<CR>
+  inoremap <silent> <C-s> <Cmd>Snippets<CR>
+  " inoremap <silent><C-s> <Esc>:Snippets<CR>
   let g:fzf_colors =
   \ { 'fg':      ['fg', 'Normal'],
     \ 'bg':      ['bg', 'Normal'],
@@ -72,9 +74,9 @@ catch
 endtry
 "===========================================
 
-"============== Trailing Whitespace ==============
+"============== Better Whitespace ==============
 try
-  nmap <leader>b :FixWhitespace<CR>
+  nmap <leader>b :StripWhitespace<CR>
 catch
 endtry
 "=================================================
@@ -225,16 +227,16 @@ try
   let g:vimtex_quickfix_mode = 2
   let g:vimtex_quickfix_open_on_warning = 0
   let g:vimtex_view_method = 'zathura'
-  let g:vimtex_view_zathura_hook_view = 'MyHook'
+  " let g:vimtex_view_zathura_hook_view = 'MyHook'
 
-  function! MyHook() dict
-    if self.xwin_id > 0
-      let l:vim_win_id = system('xdotool getactivewindow')[:-2]
-      silent call system('xdotool windowraise ' . self.xwin_id)
-      silent call system('xdotool key Escape')
-      silent call system('xdotool windowraise ' . l:vim_win_id)
-    endif
-  endfunction
+  " function! MyHook() dict
+  "   if self.xwin_id > 0
+  "     let l:vim_win_id = system('xdotool getactivewindow')[:-2]
+  "     silent call system('xdotool windowraise ' . self.xwin_id)
+  "     silent call system('xdotool key Escape')
+  "     silent call system('xdotool windowraise ' . l:vim_win_id)
+  "   endif
+  " endfunction
 catch
 endtry
 "====================================
@@ -283,3 +285,22 @@ try
 catch
 endtry
 "+============================
+
+"========= vim-autoformat ==========
+let g:formatterpath = ['/home/aldantas/dotfiles/formatters/']
+let g:formatters_org = ['orgformat_org']
+let g:formatdef_orgformat_org = '"orgformat -"'
+"+==================================
+
+"========= orgmode.vim ==========
+let g:org_start_with_closed_sections = 'endstate,comment'
+let g:org_custom_todo_styles = {
+            \   'DONE':     ['#22aa22', 'NONE',    'inverse,bold'],
+            \   'ACCEPTED': ['#4444ff', 'NONE',    'inverse,bold'],
+            \   'CLOSED':   ['#93a1a1', 'NONE',    'inverse,bold'],
+            \   'WAITING':  ['#839496', '#ffe000', 'bold'],
+            \   'REVIEW':   ['#ffaa00', 'NONE',    'inverse,bold'],
+            \   'WIP':      ['#ff7700', 'NONE',    'inverse,bold'],
+            \   'TODO':     ['#bb1100', 'NONE',    'inverse,bold'],
+            \ }
+"================================

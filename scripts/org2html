@@ -1,0 +1,5 @@
+#!/bin/bash
+
+: ${ORG_EMACS_EL:='~/.emacs'}
+
+emacs --batch --load $ORG_EMACS_EL --file "$1" --funcall org-html-export-to-html

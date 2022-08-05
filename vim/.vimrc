@@ -34,23 +34,24 @@ colorscheme apprentice
 augroup fileTypeDetect
     au BufRead,BufNewFile *.m,*.oct set filetype=octave
     au BufRead,BufNewFile *.pl set filetype=prolog
-    au BufRead,BufNewFile *.tex set filetype=tex
+    au BufRead,BufNewFile *.tex,*.cls set filetype=tex
     au BufRead,BufNewFile *.h set filetype=c
+    au BufRead,BufNewFile *.org set filetype=org
 augroup END
 
 set smarttab " allow shiftwidth configuration
 augroup fileTypeTabbing
     au FileType c,cpp setlocal ts=8 sw=8 tw=80
-    au Filetype python,xml,octave,java,text,tex,r setlocal expandtab ts=4 sw=4
+    au Filetype python,xml,octave,java,text,tex,r,org,sql setlocal expandtab ts=4 sw=4
     au Filetype python setlocal nosmartindent
     au Filetype tex,markdown setlocal tw=80 directory=. wrap linebreak
-    au Filetype htmldjango,pov setlocal ts=4 sw=4
-    au Filetype html,javascript,vim,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=2 sw=2
+    au Filetype html,css,htmldjango,pov,javascript,vim,go,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=4 sw=4
 augroup END
 
 augroup fileTypeRunning
     au FileType python noremap <buffer> <Leader>e :!python3 %<Space>
     au FileType sh noremap <buffer> <Leader>e :!sh %<Space>
+    au FileType go noremap <buffer> <Leader>e :!go run %<Space>
     au FileType python noremap <silent> <Leader>E :exec printf('1,%s w !python3', getline(''))<CR>
     au FileType r noremap <buffer> <Leader>e :!Rscript %<CR>
 augroup END
@@ -67,6 +68,8 @@ set formatoptions+=j " Remove comment leader wehn joining lines
 
 set splitbelow
 set splitright
+
+nnoremap gx :!xdg-open <cWORD> &<CR><CR>
 
 let directory = expand("~/.vim/swaps")
 if !isdirectory(directory)
@@ -91,7 +94,7 @@ au FileType * exec("setlocal dictionary+=".$HOME."/.vim/dictionaries/".expand('<
 
 set spellfile=~/.vim/spell/miscwords.add
 set spellcapcheck=""
-au FileType tex,text setlocal spell complete+=kspell wrap lbr formatoptions-=t
+au FileType tex,text,org,markdown setlocal spell complete+=kspell wrap lbr formatoptions-=t
 
 let g:languages = ['pt,en', 'en', 'pt']
 let g:spell_language_idx = 0
@@ -251,6 +254,8 @@ nnoremap <Leader>J r<CR>
 
 " Project-wide search
 " nnoremap <Leader>g :Grep<Space>
+
+" emacs --batch --load $ORG_EMACS_EL --file "$1" --funcall org-html-export-to-html
 
 execute "set <M-l>=\el"
 " TODO improve this with <C-o>
