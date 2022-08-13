@@ -32,10 +32,18 @@ alias hydra='ssh -CY hydra'
 # fi
 
 export TERM='xterm-256color'
-export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_COMMAND='fdfind --type f'
 
 export HISTCONTROL=ignoredups
 export HISTSIZE=1000000
 
-export PATH="$HOME/.pyenv/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$HOME/.local/bin:$HOME/go/bin:$PATH"
 export MANPAGER="vim -M +MANPAGER -"
+
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
