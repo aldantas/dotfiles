@@ -44,7 +44,8 @@ augroup fileTypeTabbing
     au FileType c,cpp setlocal ts=8 sw=8 tw=80
     au Filetype python,xml,octave,java,text,tex,r,org,sql setlocal expandtab ts=4 sw=4
     au Filetype python setlocal nosmartindent
-    au Filetype tex,markdown setlocal tw=80 directory=. wrap linebreak
+    au Filetype tex setlocal tw=80 directory=. wrap linebreak
+    au Filetype markdown setlocal tw=80 directory=. wrap linebreak expandtab ts=4 sw=4
     au Filetype html,css,htmldjango,pov,javascript,vim,go,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=4 sw=4
 augroup END
 
@@ -265,6 +266,13 @@ inoremap <M-l> <Esc>lx$pi
 " source ~/.vim/sources/http_request.vim
 " nnoremap <Leader>ht :call OpenHTTPRequestFile("~/.vim/sources/http_request_file")<cr>
 " nnoremap <Leader>tt 2gg:HTTPClientDoRequest<cr>
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 20
+nmap <Leader>t :Lexplore<CR>
 
 " source ~/.vim/sources/netwr_config.vim
 source ~/.vim/sources/pluginrc.vim
