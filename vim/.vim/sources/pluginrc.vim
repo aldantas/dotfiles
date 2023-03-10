@@ -9,13 +9,20 @@ endtry
 "===========================
 
 "========= vim-go ==========
-let g:go_fmt_command = "gofmt"
-let g:go_imports_autosave = 0
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_operators = 1
+try
+    let g:go_fmt_command = "gofmt"
+    let g:go_imports_autosave = 0
+    let g:go_highlight_fields = 1
+    let g:go_highlight_functions = 1
+    let g:go_highlight_function_calls = 1
+    let g:go_highlight_extra_types = 1
+    let g:go_highlight_operators = 1
+    let g:go_build_tags = "integration"
+
+    au FileType go noremap <Leader>gi :GoImplements<CR> :sleep 150m <bar> ll <bar> lcl<CR>
+    au FileType go noremap <Leader>gc :GoCallers<CR> :sleep 150m <bar> ll <bar> lcl<CR>
+catch
+endtry
 "===========================
 
 "========= fzf.vim ==========
@@ -314,3 +321,7 @@ let g:org_custom_todo_styles = {
             \   'TODO':     ['#bb1100', 'NONE',    'inverse,bold'],
             \ }
 "================================
+
+nnoremap <Leader>gb :<C-u>call gitblame#echo()<CR>
+let g:gotests_bin = '/home/aldantas/go/bin/gotests'
+let g:gotests_template = ''

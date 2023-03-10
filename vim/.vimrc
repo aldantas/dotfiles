@@ -47,12 +47,13 @@ augroup fileTypeTabbing
     au Filetype tex setlocal tw=80 directory=. wrap linebreak
     au Filetype markdown setlocal tw=80 directory=. wrap linebreak expandtab ts=4 sw=4
     au Filetype html,css,htmldjango,pov,javascript,vim,go,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=4 sw=4
+    au Filetype typescript,typescriptreact setlocal expandtab ts=2 sw=2
 augroup END
 
 augroup fileTypeRunning
     au FileType python noremap <buffer> <Leader>e :!python3 %<Space>
     au FileType sh noremap <buffer> <Leader>e :!sh %<Space>
-    au FileType go noremap <buffer> <Leader>e :!go run %<Space>
+    au FileType go noremap <buffer> <Leader>e :GoRun<CR>
     au FileType python noremap <silent> <Leader>E :exec printf('1,%s w !python3', getline(''))<CR>
     au FileType r noremap <buffer> <Leader>e :!Rscript %<CR>
 augroup END
@@ -273,6 +274,16 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 20
 nmap <Leader>t :Lexplore<CR>
+
+let g:markdown_folding = 1
+
+" create a go doc comment based on the word under the cursor
+function! s:create_go_doc_comment()
+  norm "zyiw
+  execute ":put! z"
+  execute ":norm I// \<Esc>$"
+endfunction
+nnoremap <leader>gd :<C-u>call <SID>create_go_doc_comment()<CR>
 
 " source ~/.vim/sources/netwr_config.vim
 source ~/.vim/sources/pluginrc.vim

@@ -28,6 +28,7 @@ Plugin 'nvie/vim-flake8'
 "==== Interface Plugins ====
 Plugin 'ap/vim-buftabline'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'zivyangll/git-blame.vim'
 " Plugin 'bluz71/vim-moonfly-colors'
 
 "==== Autocomplete Plugins ====
@@ -58,6 +59,7 @@ Plugin 'romainl/vim-cool'
 Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
 Plugin 'vim-autoformat/vim-autoformat'
 Plugin 'tpope/vim-fugitive'
+Plugin 'buoto/gotests-vim'
 " Plugin 'rhysd/vim-grammarous'
 " Plugin 'godlygeek/tabular'
 " Plugin 'chrisbra/csv.vim'
