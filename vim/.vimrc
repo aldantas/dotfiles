@@ -46,8 +46,9 @@ augroup fileTypeTabbing
     au Filetype python setlocal nosmartindent
     au Filetype tex setlocal tw=80 directory=. wrap linebreak
     au Filetype markdown setlocal tw=80 directory=. wrap linebreak expandtab ts=4 sw=4
-    au Filetype html,css,htmldjango,pov,javascript,vim,go,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=4 sw=4
+    au Filetype html,css,htmldjango,pov,javascript,vim,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=4 sw=4
     au Filetype typescript,typescriptreact setlocal expandtab ts=2 sw=2
+    au Filetype go setlocal ts=4 sw=4
 augroup END
 
 augroup fileTypeRunning
@@ -173,7 +174,7 @@ noremap <expr> L &wrap ? 'g$' : '$'
 " close preview and quickfix windows
 noremap <silent> ç :pclose <bar> cclose<CR>
 
-" noremap <Leader><Space> V
+inoremap <C-@> <c-x><c-o>
 
 " make Enter select completion key instead of creating new line
 inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<C-g>u\<CR>"
